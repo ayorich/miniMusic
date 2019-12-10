@@ -14,7 +14,4 @@ body {
   background-repeat: no-repeat;
   min-height: calc(100vh - 2 * 4vw); }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
