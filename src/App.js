@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Header from './container/Header/Header'
+import MusicBuilder from './container/MusicBuilder/MusicBuilder'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <MusicBuilder/>
     </div>
   );
 }

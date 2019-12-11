@@ -1,0 +1,11 @@
+ .Input {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.7rem;
+    width: 30rem; }
+    .Input:focus {
+      outline: none; }
+    .Input::placeholder {
+      color: #DAD0CC; }

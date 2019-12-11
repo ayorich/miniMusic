@@ -1,15 +1,11 @@
 import React from 'react';
 
-import classes from './Input.css';
+import'./Input.css';
 
 const input = (props) => {
    
-        
     return (
-        <div className={classes.Input}>
-            <label className={classes.Label}>{props.label}</label>
-            <input value={props.value} />;
-        </div>
+        <input value={props.value} className="Input" placeholder="Search over 1,000,000 musics..."/>
     );
 
 };
