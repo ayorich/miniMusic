@@ -1,0 +1,27 @@
+.results__link:link, .results__link:visited {
+    padding: 1.5rem 3rem;
+    transition: all .3s;
+    border-right: 1px solid #fff;
+    text-decoration: none; }
+  .results__link:hover {
+    background-color: #F9F5F3;
+    transform: translateY(-2px); }
+  .results__link--active {
+    background-color: #F9F5F3; }
+.results__data{
+    margin: 0 1rem;
+}
+  
+   
+   
+  .results__name{
+    font-size: 1.3rem;
+    color: #F59A83;
+    text-transform: uppercase;
+    font-weight: 600; }
+  .results__author{
+    margin-right: 1.8rem;
+    font-size: 1.3rem;
+    color: #968B87;
+    text-transform: uppercase;
+    font-weight: 600; }

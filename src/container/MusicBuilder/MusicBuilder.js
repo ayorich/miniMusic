@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 
 
@@ -11,6 +12,7 @@ class MusicBuilder extends Component{
         return (
             <React.Fragment>
                 <Header />
+                <Sidebar/>
             </React.Fragment>
                 
             
