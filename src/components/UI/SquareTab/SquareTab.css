@@ -1,10 +1,7 @@
-.recipe__details {
-    padding: 3rem; 
-}
-/* .music__detail {
+.music__detail {
     display: inline-block;
     margin-bottom: 1.7rem;
-    width: 30%;
+    width: 35%;
     color: #fff;
     font-weight: 700;
     font-size: 1.75rem;
@@ -23,6 +20,4 @@
     font-size: 1.55rem;
     text-transform: uppercase;
     line-height: 0.75;
-  } */
-
-  
+  }

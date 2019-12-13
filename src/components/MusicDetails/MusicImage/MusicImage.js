@@ -1,15 +1,20 @@
 import React from "react";
 
+import './MusicImage.css';
 
 
-const musicImage = () => {
-    return(
-        <figure class="recipe__fig">
-            <img src="${recipe.img}" alt="${recipe.title}" class="recipe__img"/>
-                <h1 class="recipe__title">
-                    <span>${recipe.title}</span>
-                </h1>
-        </figure>
-    )
-
+const musicImage = (props) => {
+    // console.log(props);
+    let imageDisplay= null;
+    if(props.selectSongData){
+        imageDisplay= (<figure className="music__fig">
+            <img src={props.selectSongData.album.cover_xl} alt={props.selectSongData.title} className="music__img"/>
+                        <h1 className="music__title">
+                        <span>{props.selectSongData.title}</span>
+                        </h1>
+                    </figure>)
+    }
+    return imageDisplay;
 }
+
+export default musicImage;

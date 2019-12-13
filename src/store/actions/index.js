@@ -1,3 +1,7 @@
 export {
     searchData
-} from './musicBuilder';
+} from './musicListBuilder';
+
+export{
+    selectMusic
+}from './musicDetailsBuilder';

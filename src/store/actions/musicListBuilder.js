@@ -15,7 +15,7 @@ export const searchData = userInput => {
           }
         ).then(response => {
             dispatch(setData(response.data.data));
-            console.log(response.data.data);
+            // console.log(response.data.data);
           })
           .catch(err => {
             dispatch(setDataFailed(err));

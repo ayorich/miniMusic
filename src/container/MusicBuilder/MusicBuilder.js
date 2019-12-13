@@ -6,14 +6,13 @@ import MusicDetails from '../../components/MusicDetails/MusicDetails';
 
 
 class MusicBuilder extends Component{
-    
 
     render() {
     
         return (
             <React.Fragment>
                 <Header />
-                <Sidebar/>
+                <Sidebar />
                 <MusicDetails/>
             </React.Fragment>
                 
