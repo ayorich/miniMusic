@@ -8,7 +8,7 @@ const musicDataDisplay = (props) => {
     // console.log(props);
     let detailsDisplay = null;
     if (props.selectSongData) {
-        console.log(props.selectSongData);
+        // console.log(props.selectSongData);
 
         detailsDisplay = (
             <div className="recipe__details">

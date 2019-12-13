@@ -11,8 +11,10 @@ class Sidebar extends Component {
   
 
   selectedMusicHandler = (selectedMusic) => {
-    // console.log(selectedMusic);
+    // console.log(selectedMusic.preview);
     this.props.onselectMusic(selectedMusic);
+    this.props.onupdatePlayer(selectedMusic.preview)
+
   }
 
       render(){
@@ -37,7 +39,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic))
+    onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
+    onupdatePlayer: url => dispatch(actions.updatePlayer(url))
   };
 }
 

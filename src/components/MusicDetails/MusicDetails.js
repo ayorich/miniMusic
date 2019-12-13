@@ -13,6 +13,7 @@ class MusicDetails extends Component {
 
         // console.log(this.props.selectSong[0]);
         const selectSong = this.props.selectSong[0];
+        // const audio = new Audio(this.props.musicState.url)
         return(
             <div className="musicDeatials">
                 <MusicImage selectSongData={selectSong}/>
@@ -26,9 +27,11 @@ class MusicDetails extends Component {
 } 
 
 
+
 const mapStateToProps = state => {
     return {
         selectSong: state.musicDetailsBuilder,
+        musicState: state.musicPlayer,
 
     };
 };
