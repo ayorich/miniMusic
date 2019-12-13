@@ -16,7 +16,7 @@ class Sidebar extends Component {
   }
 
       render(){
-        const listData = [...this.props.list];
+        const listData = this.props.list;
 
         return (
           <div className="results">

@@ -7,12 +7,17 @@ const musicImage = (props) => {
     // console.log(props);
     let imageDisplay= null;
     if(props.selectSongData){
-        imageDisplay= (<figure className="music__fig">
-            <img src={props.selectSongData.album.cover_xl} alt={props.selectSongData.title} className="music__img"/>
-                        <h1 className="music__title">
+        imageDisplay= (
+                <React.Fragment>
+                <figure className="music__fig">
+                    <img src={props.selectSongData.album.cover_xl} alt={props.selectSongData.title} className="music__img" />
+                    <h1 className="music__title">
                         <span>{props.selectSongData.title}</span>
-                        </h1>
-                    </figure>)
+                    </h1>
+                </figure>
+                </React.Fragment>
+                    
+            )
     }
     return imageDisplay;
 }
