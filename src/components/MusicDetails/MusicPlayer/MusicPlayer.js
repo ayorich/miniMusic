@@ -1,58 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import * as actions from '../../../store/actions/index';
+import './MusicPlayer.css';
 
 class Music extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     // this.state = {
-    //     //     play: false
-    //     // }
-    // }
-    audio = new Audio(this.props.musicState.url)
-
-    componentDidMount() {
-        this.audio.addEventListener('ended', () => this.props.onstopMusic());
-        console.log('mount', this.props.musicState);
-
+  
+    componentDidMount(){
+        this.changeMusic();
     }
 
-    componentWillUnmount() {
-        this.audio.removeEventListener('ended', () => this.props.onstopMusic());
-        console.log('umount', this.props.musicState);
-
+    componentDidUpdate(){
+        this.changeMusic();
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.musicState.url !== prevProps.musicState.url) {
-    //     console.log(new Audio(this.props.musicState.url));
-
-    //         new Audio(this.props.musicState.url)
-
-    //     }
-    // }
-    // togglePlay = () => {
-    //     this.setState({ play: !this.state.play }, 
-    //         () => {    this.state.play ? this.audio.play() : this.audio.pause();
-    //     });
-    // }
-
-    togglePlay = () => {
-        // console.log(new Audio(this.props.musicState.url));
-        this.props.ontogglePlay(!this.props.musicState.play);
-        !this.props.musicState.play ? this.audio.play() : this.audio.pause();
-        // console.log(!this.props.musicState.play)
-    }
-
+    changeMusic = () =>{
+                this.refs.audio.pause();
+                this.refs.audio.load();
+                this.refs.audio.play();
+        }
+ 
     render() {
-        // console.log(this.props.musicState);
         return (
-            <div>
-                <audio controls ref="audio">
+            <div className="audio__container">
+                <audio controls ref="audio" className="audio__player">
                     <source src={this.props.musicState.url} />
                 </audio>
-                {/* <button onClick={this.togglePlay}>{this.props.musicState.play ? 'Pause' : 'Play Preview'}</button> */}
             </div>
         );
     }
@@ -65,11 +37,5 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onstopMusic: () => dispatch(actions.stopMusic()),
-        ontogglePlay: (playState) => dispatch(actions.togglePlayer(playState))
-    };
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Music);
+export default connect(mapStateToProps)(Music);

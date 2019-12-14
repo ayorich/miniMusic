@@ -8,6 +8,4 @@ export{
 
 export {
     updatePlayer,
-    stopMusic,
-    togglePlayer
 } from './musicPlayer';

@@ -11,17 +11,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.UPDATE_PLAYER:
             return {
                url: action.payload,
-                play: false
-            }
-        case actionTypes.STOP_MUSIC:
-            return{
-                ...state,
-                play: false
-            }
-        case actionTypes.TOGGLE_PLAY:
-            return {
-                ...state,
-                play: action.payload
+                play: true
             }
         default:
             return state;

@@ -7,16 +7,3 @@ export const updatePlayer = (url) => {
         payload: url
     }
 }
-
-export const stopMusic = () => {
-    return{
-        type:actionTypes.STOP_MUSIC
-    }
-}
-
-export const togglePlayer = (playState) => {
-    return{
-        type: actionTypes.TOGGLE_PLAY,
-        payload: playState
-    }
-}

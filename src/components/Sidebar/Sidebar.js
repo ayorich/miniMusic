@@ -11,10 +11,9 @@ class Sidebar extends Component {
   
 
   selectedMusicHandler = (selectedMusic) => {
-    // console.log(selectedMusic.preview);
     this.props.onselectMusic(selectedMusic);
-    this.props.onupdatePlayer(selectedMusic.preview)
-
+    this.props.onupdatePlayer(selectedMusic.preview);
+    
   }
 
       render(){

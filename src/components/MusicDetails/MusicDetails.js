@@ -3,24 +3,25 @@ import { connect } from 'react-redux';
 import MusicImage from './MusicImage/MusicImage';
 import MusicDataDisplay from './MusicDataDisplay/MusicDataDisplay';
 import MusicPlayer from './MusicPlayer/MusicPlayer';
+import Button from '../UI/Button/Button';
 
 
 
 import './MusicDetails.css'
 
 class MusicDetails extends Component {
+
+
     render(){
 
         // console.log(this.props.selectSong[0]);
         const selectSong = this.props.selectSong[0];
-        // const audio = new Audio(this.props.musicState.url)
         return(
             <div className="musicDeatials">
                 <MusicImage selectSongData={selectSong}/>
-                <p>passs.....</p>
-                {selectSong? <MusicPlayer url={selectSong }/> : null}
-                {/* <audio ref={myRef} src={this.props.selectSong.preview} autoPlay /> */}
+                {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 <MusicDataDisplay selectSongData={selectSong}/>
+                {selectSong? <Button>Add to Playlist</Button> : null}
             </div>
         )
     }
