@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
       return [action.payload]
         
     case actionTypes.FETCH_DATA_FAILED:
-      return null;
+      return [];
     default:
       return state;
   }

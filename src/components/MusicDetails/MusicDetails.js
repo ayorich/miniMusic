@@ -17,7 +17,7 @@ class MusicDetails extends Component {
         // console.log(this.props.selectSong[0]);
         const selectSong = this.props.selectSong[0];
         return(
-            <div className="musicDeatials">
+            <div className="musicDetials">
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 <MusicDataDisplay selectSongData={selectSong}/>

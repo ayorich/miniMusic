@@ -1,6 +1,15 @@
 .audio__player{
     width: 50rem;
 }
+
+.audio__player:focus{
+    width: 50rem;
+    outline: none;
+}
 .audio__container{
         padding: 1rem 3rem;
+}
+.audio__container:focus{
+        padding: 1rem 3rem;
+        outline: none;
 }

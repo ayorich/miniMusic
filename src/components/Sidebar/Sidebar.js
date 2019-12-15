@@ -18,11 +18,11 @@ class Sidebar extends Component {
 
       render(){
         const listData = this.props.list;
-
+          console.log(listData)
         return (
           <div className="results">
             <ul className="results__list">
-              <SidebarList listData={listData} selectedMusicHandler={this.selectedMusicHandler} />
+             {listData.length !== 0? <SidebarList listData={listData} selectedMusicHandler={this.selectedMusicHandler} /> :null}
             </ul>
           </div>
         );

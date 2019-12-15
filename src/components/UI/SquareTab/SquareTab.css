@@ -17,7 +17,10 @@
 
   .text__detail{
       font-weight: 700;
-    font-size: 1.55rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
-    line-height: 0.75;
+    line-height: 1.75;
+    width: 64%;
+    display: inline-block;
+
   }

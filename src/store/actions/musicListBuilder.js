@@ -14,8 +14,9 @@ export const searchData = userInput => {
             }
           }
         ).then(response => {
-            dispatch(setData(response.data.data));
-            // console.log(response.data.data);
+            dispatch(setData(response.data));
+          console.log(response.data);
+          // console.log(response);
           })
           .catch(err => {
             dispatch(setDataFailed(err));
