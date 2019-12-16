@@ -1,5 +1,15 @@
 .results{
   padding: 1rem 0 3rem; }
   
-  .results__list {
+.results__list {
     list-style: none; }
+
+
+.results__pages{
+    margin-top: 3rem;
+    padding: 0 3rem; }
+
+.results__pages::after{
+      content: "";
+      display: table;
+      clear: both; }

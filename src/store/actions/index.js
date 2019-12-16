@@ -1,5 +1,7 @@
 export {
-    searchData
+    searchData,
+    getnextList,
+    getprevList
 } from './musicListBuilder';
 
 export{

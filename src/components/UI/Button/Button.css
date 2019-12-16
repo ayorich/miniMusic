@@ -18,3 +18,9 @@
 .btn {
   padding: 1.3rem 3rem;
   font-size: 1.4rem; }
+
+  .btn--prev{
+    float: left;
+    flex-direction: row-reverse; }
+  .btn--next{
+    float: right; }

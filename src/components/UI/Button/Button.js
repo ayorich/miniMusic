@@ -5,7 +5,7 @@ import './Button.css';
 const button = (props) => {
 
     return (
-            <button className="btn" {...props} >
+        <button  {...props} >
                 <span>{props.children}</span>
             </button>
     );

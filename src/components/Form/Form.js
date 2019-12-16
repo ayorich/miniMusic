@@ -27,6 +27,7 @@ render(){
           onChange={(event) => this.inputChangeHandler(event)}
         />
         <Button onClick={() => this.props.onsearchData(this.state.value)}
+          className='btn'
         disabled={this.state.disabled} 
         >
           Search
