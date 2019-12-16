@@ -21,7 +21,7 @@ class MusicDetails extends Component {
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 <MusicDataDisplay selectSongData={selectSong}/>
-                {selectSong? <Button>Add to Playlist</Button> : null}
+                {selectSong? <Button className='btn'>Add to Playlist</Button> : null}
             </div>
         )
     }

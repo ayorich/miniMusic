@@ -16,7 +16,7 @@ const sidebarList = (props)=> {
   
 
 
-  const limitTitle = (title, limit = 15) => {
+  const limitTitle = (title, limit = 12) => {
     const titleSplit = title.split('(')[0];
 
     const newTitle = [];
@@ -42,7 +42,7 @@ const sidebarList = (props)=> {
       <li key={key.id} className="list__pointer" onClick={() => props.selectedMusicHandler(key)}>
         <div className="results__link">
           <div className="results__data">
-            <p className="results__author">Artist : {key.artist.name}</p>
+            <p className="results__author">Artist : {limitTitle(key.artist.name, 14)}</p>
             <h4 className="results__name">Song Title : {limitTitle(key.title)}</h4>
           </div>
         </div>

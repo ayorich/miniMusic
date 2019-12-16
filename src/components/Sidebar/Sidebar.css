@@ -1,8 +1,12 @@
 .results{
-  padding: 1rem 0 3rem; }
+  padding: 0rem 0 3rem; 
+}
   
 .results__list {
-    list-style: none; }
+    list-style: none;
+    max-height: 77rem;
+    overflow-y: scroll;
+  margin: 0 0 1rem; }
 
 
 .results__pages{

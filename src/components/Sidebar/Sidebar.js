@@ -10,11 +10,7 @@ import './Sidebar.css'
 
 class Sidebar extends Component {
   
-  // componentDidUpdate(){
-
-
-  // }
-
+  
   buttonRender = ()=>{
     if (this.props.list[0].next && !this.props.list[0].prev) {
       return <Button className='btn btn--next'
@@ -49,18 +45,19 @@ class Sidebar extends Component {
 
       render(){
         const listData = this.props.list;
-          console.log(listData)
+          // console.log(listData)
         
         return (
+          <React.Fragment>
           <div className="results">
             <ul className="results__list">
              {listData.length !== 0? <SidebarList listData={listData} selectedMusicHandler={this.selectedMusicHandler} /> :null}
             </ul>
-            <div className="results__pages">
+          <div className="results__pages">
             {listData.length !== 0 ? this.buttonRender() : null}
-            </div>
-            
           </div>
+          </div>
+          </React.Fragment>
         );
       }
 }

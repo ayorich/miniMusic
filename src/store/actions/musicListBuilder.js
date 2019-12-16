@@ -54,7 +54,7 @@ const axiosRequest =(url, proxyurl) => axios(`${proxyurl}${url}`,
 )
 
 export const getnextList = url => {
-  console.log(url)
+  // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
     axiosRequest(url, proxyurl).then(response => {
@@ -70,7 +70,7 @@ export const getnextList = url => {
 }
 
 export const getprevList = url => {
-  console.log(url)
+  // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
     axiosRequest(url, proxyurl).then(response => {
