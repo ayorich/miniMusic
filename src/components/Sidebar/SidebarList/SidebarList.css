@@ -1,4 +1,4 @@
-.list__pointer {cursor: pointer;}
+.list__pointer{cursor: pointer;}
 .results__link:link, .results__link:visited {
     padding: 1.5rem 3rem;
     transition: all .3s;

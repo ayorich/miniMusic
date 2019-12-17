@@ -53,9 +53,9 @@ class Sidebar extends Component {
             <ul className="results__list">
              {listData.length !== 0? <SidebarList listData={listData} selectedMusicHandler={this.selectedMusicHandler} /> :null}
             </ul>
-          <div className="results__pages">
-            {listData.length !== 0 ? this.buttonRender() : null}
-          </div>
+            <div className="results__pages">
+              {listData.length !== 0 ? this.buttonRender() : null}
+            </div>
           </div>
           </React.Fragment>
         );
