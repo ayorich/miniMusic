@@ -1,0 +1,34 @@
+.track__pointer{cursor: pointer;}
+.track__link:link, .track__link:visited {
+    padding: 1.5rem 3rem;
+    transition: all .3s;
+    border-right: 1px solid #fff;
+    text-decoration: none; }
+  .track__link:hover {
+    background-color: #F9F5F3;
+    transform: translateY(-2px); }
+  .track__link--active {
+    background-color: #F9F5F3; }
+.track__data{
+    margin: 0 1rem;
+
+}
+  
+   
+   
+  .track__name{
+    font-size: 1.3rem;
+    color: #F59A83;
+    text-transform: uppercase;
+    font-weight: 600; 
+    display: inline-block;
+  }
+  .track__heading{
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    color: #968B87;
+    text-transform: uppercase;
+    font-weight: 600; 
+  
+  }
+

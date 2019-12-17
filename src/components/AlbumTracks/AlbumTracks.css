@@ -1,0 +1,22 @@
+.album {
+  padding: 0.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+ }
+
+.album__list {
+    list-style: none;
+    padding: 0 0 0 0rem;
+    max-height: 47rem;
+    overflow: scroll;
+ }
+
+
+.heading-2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #F59A83;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  transform: skewY(-3deg); }

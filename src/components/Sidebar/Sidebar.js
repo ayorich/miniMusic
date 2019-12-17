@@ -45,7 +45,7 @@ class Sidebar extends Component {
 
       render(){
         const listData = this.props.list;
-          // console.log(listData)
+          console.log(listData)
         
         return (
           <React.Fragment>

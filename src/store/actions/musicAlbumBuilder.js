@@ -30,7 +30,7 @@ export const viewAlbum = albumID => {
 
 
 export const setAlbumData = data => {
-    console.log(data)
+    // console.log(data)
     return {
         type: actionTypes.GET_ALBUM_TRACKS,
         payload: data
