@@ -4,6 +4,7 @@ import MusicImage from './MusicImage/MusicImage';
 import MusicDataDisplay from './MusicDataDisplay/MusicDataDisplay';
 import MusicPlayer from './MusicPlayer/MusicPlayer';
 import Button from '../UI/Button/Button';
+import * as actions from '../../store/actions/index';
 
 
 
@@ -21,7 +22,9 @@ class MusicDetails extends Component {
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 <MusicDataDisplay selectSongData={selectSong}/>
-                {selectSong? <Button className='btn'>Add to Playlist</Button> : null}
+                {selectSong? <Button className='btn'
+                    onClick={() => this.props.onviewAlbum(this.props.selectSong[0].album.id)}
+                >View Album</Button> : null}
             </div>
         )
     }
@@ -37,4 +40,13 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(MusicDetails);
+const mapDispatchToProps = dispatch => {
+    return {
+        onviewAlbum: id => dispatch(actions.viewAlbum(id)),
+        
+
+    };
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MusicDetails);

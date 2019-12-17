@@ -11,3 +11,8 @@ export{
 export {
     updatePlayer,
 } from './musicPlayer';
+
+
+export {
+    viewAlbum,
+} from './musicAlbumBuilder';

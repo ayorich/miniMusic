@@ -15,7 +15,7 @@ export const searchData = userInput => {
           }
         ).then(response => {
             dispatch(setData(response.data));
-          console.log(response);
+          // console.log(response);
           // console.log(response);
           })
           .catch(err => {
@@ -26,18 +26,7 @@ export const searchData = userInput => {
    
 }
 
-export const setData = data => {
-    return{
-        type: actionTypes.FETCH_DATA,
-        payload:data
-    }
-}
 
-export const setDataFailed = () => {
-    return{
-        type: actionTypes.FETCH_DATA_FAILED
-    }
-}
 const axiosRequest =(url, proxyurl) => axios(`${proxyurl}${url}`,
   {
     method: "GET",
@@ -83,4 +72,18 @@ export const getprevList = url => {
         console.log(err);
       });
   };
+}
+
+
+export const setData = data => {
+  return {
+    type: actionTypes.FETCH_DATA,
+    payload: data
+  }
+}
+
+export const setDataFailed = () => {
+  return {
+    type: actionTypes.FETCH_DATA_FAILED
+  }
 }

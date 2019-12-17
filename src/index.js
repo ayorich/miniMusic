@@ -6,6 +6,8 @@ import thunk from "redux-thunk";
 import musicListReducer from './store/reducers/musicListBuilder';
 import musicDetailsReducer from './store/reducers/musicDetailsBuilder';
 import musicPlayerReducer from './store/reducers/musicPlayer';
+import musicAlbumReducer from './store/reducers/musicAlbumBuilder';
+
 
 import './index.css';
 import App from './App';
@@ -16,7 +18,8 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 const rootReducer = combineReducers({
   musicListBuilder: musicListReducer,
   musicDetailsBuilder: musicDetailsReducer,
-  musicPlayer: musicPlayerReducer
+  musicPlayer: musicPlayerReducer,
+  musicAlbum: musicAlbumReducer
 });
 
 const store = createStore(
