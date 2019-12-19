@@ -2,20 +2,49 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
-// import * as actions from '../../store/actions/index';
+import * as actions from '../../store/actions/index';
 import './AlbumTracks.css'
 
 
 class AlbumTracks extends Component{
 
+       
+        getAlbumDetails = () => {
+            const cover_xl = this.props.albumTrack[0].cover_xl;
+            const title = this.props.albumTrack[0].title;
+            const album = {
+                cover_xl: cover_xl,
+                title: title
+            }
+            return album;
+        }
+
+    selectedMusicHandler = (selectedMusic) => {
+        const album = this.getAlbumDetails();
+       
+        const key = selectedMusic;
+        // console.log(album)
+        const newKey = {
+                ...key,
+                album:album
+
+        }
+
+        console.log(newKey)
+        this.props.onselectMusic(newKey);
+        this.props.onupdatePlayer(selectedMusic.preview);
+
+    }
     render(){
-        console.log(this.props.albumTrack)
-        const trackData = this.props.albumTrack
+        // console.log(this.props.albumTrack)
+        const trackData = this.props.albumTrack;
+
+
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
             <ul className="album__list">
-                    {this.props.albumTrack.length !== 0 ? <AlbumTrackList trackData={trackData} selectedMusicHandler={this.selectedMusicHandler} /> : null}
+             {this.props.albumTrack.length !== 0 ? <AlbumTrackList trackData={trackData} selectedMusicHandler={this.selectedMusicHandler} /> : null}
             </ul>
             </div>
         )
@@ -31,13 +60,14 @@ const mapStateToProps = state => {
     };
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onviewAlbum: id => dispatch(actions.viewAlbum(id)),
+const mapDispatchToProps = dispatch => {
+    return {
+        // onviewAlbum: id => dispatch(actions.viewAlbum(id)),
+        onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
+        onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
 
+    };
 
-//     };
+}
 
-// }
-
-export default connect(mapStateToProps)(AlbumTracks);
+export default connect(mapStateToProps, mapDispatchToProps)(AlbumTracks);

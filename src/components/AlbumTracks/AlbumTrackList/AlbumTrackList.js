@@ -3,7 +3,7 @@ import React from "react";
 import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
-    // console.log(props.listData)
+    // console.log(props.trackData)
 
     const list = props.trackData[0].tracks.data;
     // console.log(list)
@@ -42,8 +42,8 @@ const albumTrackList = (props) => {
             <li key={key.id} className="track__pointer" onClick={() => props.selectedMusicHandler(key)}>
                 <div className="track__link">
                     <div className="track__data">
-                        <span className="track__heading">Track {index + 1} : </span>
-                        <span className="track__name">{limitTitle(key.title)}</span>
+                        <h2 className="track__heading">Track {index + 1} : </h2>
+                        <h2 className="track__name">{limitTitle(key.title)}</h2>
                     </div>
                 </div>
             </li>

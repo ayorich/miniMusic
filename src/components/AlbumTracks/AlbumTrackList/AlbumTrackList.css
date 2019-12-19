@@ -11,6 +11,8 @@
     background-color: #F9F5F3; }
 .track__data{
     margin: 0 1rem;
+    display: flex;
+/* flex-wrap: nowrap; */
 
 }
   
@@ -21,14 +23,19 @@
     color: #F59A83;
     text-transform: uppercase;
     font-weight: 600; 
-    display: inline-block;
+        margin-left: 0.5rem;
+        /* align-items: flex-start; */
+        flex-basis:15rem;
+    
+
   }
   .track__heading{
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     font-size: 1.3rem;
     color: #968B87;
     text-transform: uppercase;
     font-weight: 600; 
+        /* flex-basis:11rem; */
   
   }
 
