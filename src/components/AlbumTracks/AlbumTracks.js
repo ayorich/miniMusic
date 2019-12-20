@@ -9,10 +9,12 @@ import './AlbumTracks.css'
 class AlbumTracks extends Component{
 
        
-        getAlbumDetails = () => {
+    getAlbumDetails = () => {
             const cover_xl = this.props.albumTrack[0].cover_xl;
-            const title = this.props.albumTrack[0].title;
+        const title = this.props.albumTrack[0].title;
+        const albumID = this.props.albumTrack[0].id;
             const album = {
+                id: albumID,
                 cover_xl: cover_xl,
                 title: title
             }
@@ -30,7 +32,7 @@ class AlbumTracks extends Component{
 
         }
 
-        console.log(newKey)
+        // console.log(newKey)
         this.props.onselectMusic(newKey);
         this.props.onupdatePlayer(selectedMusic.preview);
 
@@ -38,7 +40,6 @@ class AlbumTracks extends Component{
     render(){
         // console.log(this.props.albumTrack)
         const trackData = this.props.albumTrack;
-
 
         return(
             <div className="album">

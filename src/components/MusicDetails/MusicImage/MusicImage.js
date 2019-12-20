@@ -4,7 +4,7 @@ import './MusicImage.css';
 
 
 const musicImage = (props) => {
-    console.log(props);
+    // console.log(props);
     let imageDisplay= null;
     if(props.selectSongData){
         imageDisplay= (

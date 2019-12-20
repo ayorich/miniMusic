@@ -2,10 +2,8 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
 
-// https://deezerdevs-deezer.p.rapidapi.com/album/
-
 export const viewAlbum = albumID => {
-    console.log(albumID)
+    // console.log(albumID)
     return dispatch => {
         axios(
             `https://deezerdevs-deezer.p.rapidapi.com/album/${albumID}`,
@@ -19,6 +17,7 @@ export const viewAlbum = albumID => {
             }
         ).then(response => {
             dispatch(setAlbumData(response.data));
+            dispatch(albumDetails(response.data))
             // console.log(response);
         })
             .catch(err => {
@@ -40,5 +39,29 @@ export const setAlbumData = data => {
 export const setAlbumDataFailed = () => {
     return {
         type: actionTypes.GET_ALBUM_TRACKS_FAILED
+    }
+}
+
+export const albumDetails = albumDetails => {
+    // console.log(albumDetails);
+    const cover_xl = albumDetails.cover_xl;
+    const title = albumDetails.title;
+    const albumID = albumDetails.id;
+    const album = {
+        cover_xl: cover_xl,
+        title: title,
+        id: albumID
+    }
+    const newKey = {
+        ...albumDetails,
+        album: album,
+        displayType:true
+
+    }
+    // console.log(newKey);
+
+    return {
+        type: actionTypes.VIEW_ALBUM_DETAILS,
+        payload: newKey
     }
 }

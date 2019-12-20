@@ -15,15 +15,15 @@ class MusicDetails extends Component {
 
     render(){
 
-        // console.log(this.props.selectSong[0]);
+        console.log(this.props.selectSong[0]);
         const selectSong = this.props.selectSong[0];
         return(
             <div className="musicDetials">
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
-                <MusicDataDisplay selectSongData={selectSong}/>
+                {selectSong ? <MusicDataDisplay selectSongData={selectSong} /> : null}
                 {selectSong? <Button className='btn'
-                    onClick={() => this.props.onviewAlbum(this.props.selectSong[0].album.id)}
+                    onClick={() => this.props.onviewAlbum(selectSong.album.id)}
                 >View Album</Button> : null}
             </div>
         )
