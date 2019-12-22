@@ -3,7 +3,7 @@ import React from "react";
 import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
-    console.log(props.trackData)
+    // console.log(props.trackData)
 
     const list = props.trackData[0].tracks.data;
     // console.log(list)

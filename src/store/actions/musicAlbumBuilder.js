@@ -16,8 +16,8 @@ export const viewAlbum = albumID => {
                 }
             }
         ).then(response => {
+            dispatch(albumDetails(response.data));
             dispatch(setAlbumData(response.data));
-            dispatch(albumDetails(response.data))
             // console.log(response);
         })
             .catch(err => {
@@ -55,7 +55,7 @@ export const albumDetails = albumDetails => {
     const newKey = {
         ...albumDetails,
         album: album,
-        displayType:true
+        displayType:true  //change display between ALBUM DISPLAY(TRUE) AND LIST DISPLAY DETAILS(FALSE)
 
     }
     // console.log(newKey);

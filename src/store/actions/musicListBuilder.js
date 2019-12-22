@@ -48,7 +48,7 @@ export const getnextList = url => {
   return dispatch => {
     axiosRequest(url, proxyurl).then(response => {
       dispatch(setData(response.data));
-      console.log(response.data);
+      // console.log(response.data);
       // console.log(response);
     })
       .catch(err => {
@@ -64,7 +64,7 @@ export const getprevList = url => {
   return dispatch => {
     axiosRequest(url, proxyurl).then(response => {
       dispatch(setData(response.data));
-      console.log(response.data);
+      // console.log(response.data);
       // console.log(response);
     })
       .catch(err => {
