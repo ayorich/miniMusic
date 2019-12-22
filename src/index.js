@@ -7,6 +7,7 @@ import musicListReducer from './store/reducers/musicListBuilder';
 import musicDetailsReducer from './store/reducers/musicDetailsBuilder';
 import musicPlayerReducer from './store/reducers/musicPlayer';
 import musicAlbumReducer from './store/reducers/musicAlbumBuilder';
+import UIBuilderReducer from "./store/reducers/UIBuilder";
 
 
 import './index.css';
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   musicListBuilder: musicListReducer,
   musicDetailsBuilder: musicDetailsReducer,
   musicPlayer: musicPlayerReducer,
-  musicAlbum: musicAlbumReducer
+  musicAlbum: musicAlbumReducer,
+  UIStatus: UIBuilderReducer
 });
 
 const store = createStore(
