@@ -1,0 +1,16 @@
+.auth {
+  background-color: #F9F5F3;
+  border-top: 1px solid #fff;
+grid-area: details;
+display: flex;
+    align-items: flex-start;
+margin: auto;
+margin-top: 2rem;
+height: 35rem;
+padding:2rem 1rem 3rem
+}
+.formbtn{
+margin-top: 1rem;
+margin-left: 23rem;
+    
+}

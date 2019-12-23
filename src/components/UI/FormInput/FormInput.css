@@ -1,0 +1,47 @@
+
+ .FormInput {
+    font-family: inherit;
+    font-size: 1.7rem;
+    background-color: #fff;
+    border-radius: 10rem;
+    margin: 2rem 3rem;
+    padding-left: 2rem;
+    transition: all .3s;
+    width: 30rem;
+
+}
+.FormInput:focus {
+    outline: none; }
+
+    .FormInput:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08); }
+
+.FormInput::placeholder {
+    color: #DAD0CC; }
+
+/* .FormLabel {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+} */
+
+.InputElement{
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.7rem;
+    padding:1.5rem 
+}
+.InputElement:focus {
+    outline: none; }
+.InputElement::placeholder {
+    color: #DAD0CC; }
+
+.Invalid {
+    background-color: #FDA49A;
+}
+
+
+
