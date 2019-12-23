@@ -1,5 +1,6 @@
 export const SEARCH_DATA = "SEARCH_DATA";
-export const FETCH_DATA = "FETCH_DATA";
+export const FETCH_DATA_START = "FETCH_DATA_START";
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_FAILED = "FETCH_DATA_FAILED";
 export const GET_NEXT_LIST = "GET_NEXT_LIST";
 export const GET_PREV_LIST = "GET_PREV_LIST";

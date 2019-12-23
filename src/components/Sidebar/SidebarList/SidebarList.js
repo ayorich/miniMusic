@@ -5,7 +5,7 @@ import './SidebarList.css';
 const sidebarList = (props)=> {
   // console.log(props.listData)
 
-  const list = props.listData[0].data;
+  const list = props.listData;
   // console.log(list)
 
   const dataArray = [];

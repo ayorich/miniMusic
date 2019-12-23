@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const searchData = userInput => {
     return dispatch => {
+      dispatch(setDatastart());
         axios(
           `https://deezerdevs-deezer.p.rapidapi.com/search?q=${userInput}`,
           {
@@ -14,7 +15,9 @@ export const searchData = userInput => {
             }
           }
         ).then(response => {
-            dispatch(setData(response.data));
+          dispatch(setDatasuccess(response.data));
+            console.log(response.data);
+
           })
           .catch(err => {
             dispatch(setDataFailed(err));
@@ -44,8 +47,9 @@ export const getnextList = url => {
   // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
+      dispatch(setDatastart());
     axiosRequest(url, proxyurl).then(response => {
-      dispatch(setData(response.data));
+      dispatch(setDatasuccess(response.data));
       // console.log(response.data);
       // console.log(response);
     })
@@ -60,8 +64,9 @@ export const getprevList = url => {
   // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
+      dispatch(setDatastart());
     axiosRequest(url, proxyurl).then(response => {
-      dispatch(setData(response.data));
+      dispatch(setDatasuccess(response.data));
       // console.log(response.data);
       // console.log(response);
     })
@@ -71,11 +76,15 @@ export const getprevList = url => {
       });
   };
 }
-
-
-export const setData = data => {
+export const setDatastart = () => {
   return {
-    type: actionTypes.FETCH_DATA,
+    type: actionTypes.FETCH_DATA_START
+  }
+}
+
+export const setDatasuccess = data => {
+  return {
+    type: actionTypes.FETCH_DATA_SUCCESS,
     payload: data
   }
 }

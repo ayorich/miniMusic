@@ -4,45 +4,46 @@ import { connect } from 'react-redux';
 import SidebarList from './SidebarList/SidebarList';
 import * as actions from '../../store/actions/index';
 import Button from '../UI/Button/Button';
-// import Spinner from "../UI/Spinner/Spinner";
+import Spinner from "../UI/Spinner/Spinner";
 
 
 import './Sidebar.css'
 
 class Sidebar extends Component {
+
   
   buttonRender = () => {
-    if (this.props.list[0].next && !this.props.list[0].prev) {
+    if (this.props.next && !this.props.prev) {
       return (
         <Button
           className="btn btn--next"
-          onClick={() => this.props.onnextList(this.props.list[0].next)}
+          onClick={() => this.props.onnextList(this.props.next)}
         >
           NEXT
         </Button>
       );
-    } else if (this.props.list[0].next && this.props.list[0].prev) {
+    } else if (this.props.next && this.props.prev) {
       return (
         <React.Fragment>
           <Button
             className="btn btn--next"
-            onClick={() => this.props.onnextList(this.props.list[0].next)}
+            onClick={() => this.props.onnextList(this.props.next)}
           >
             NEXT
           </Button>
           <Button
             className="btn btn--prev"
-            onClick={() => this.props.onprevList(this.props.list[0].prev)}
+            onClick={() => this.props.onprevList(this.props.prev)}
           >
             PREV
           </Button>
         </React.Fragment>
       );
-    } else if (this.props.list[0].prev && !this.props.list[0].next) {
+    } else if (this.props.prev && !this.props.next) {
       return (
         <Button
           className="btn btn--prev"
-          onClick={() => this.props.onprevList(this.props.list[0].prev)}
+          onClick={() => this.props.onprevList(this.props.prev)}
         >
           PREV
         </Button>
@@ -56,23 +57,23 @@ class Sidebar extends Component {
   };
 
   render() {
-    const listData = this.props.list;
-   
-
+    
+    let list = <SidebarList
+      listData={this.props.listData}
+      selectedMusicHandler={this.selectedMusicHandler}
+    />
+    if (this.props.loading) {
+      list = <Spinner />
+    }
 
     return (
       <React.Fragment>
         <div className="results">
           <ul className="results__list">
-            {listData.length !== 0 ? (
-              <SidebarList
-                listData={listData}
-                selectedMusicHandler={this.selectedMusicHandler}
-              />
-            ) : null}
+            {list}
           </ul>
           <div className="results__pages">
-            {listData.length !== 0 ? this.buttonRender() : null}
+             {this.buttonRender()}
           </div>
         </div>
       </React.Fragment>
@@ -82,8 +83,10 @@ class Sidebar extends Component {
 
 const mapStateToProps = state => {
   return {
-    list: state.musicListBuilder,
-    // UIStatus:state.UIStatus
+    listData: state.musicListBuilder.data,
+    next: state.musicListBuilder.next,
+    prev: state.musicListBuilder.prev,
+    loading: state.musicListBuilder.loading,
 
   };
 };
