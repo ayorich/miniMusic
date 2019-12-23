@@ -8,7 +8,9 @@ import './AlbumTracks.css'
 
 class AlbumTracks extends Component{
 
-       
+       componentDidMount(){
+          this.props.onalbumInit();
+       }
     getAlbumDetails = () => {
             const cover_xl = this.props.albumTrack[0].cover_xl;
         const title = this.props.albumTrack[0].title;
@@ -66,6 +68,7 @@ const mapDispatchToProps = dispatch => {
         // onviewAlbum: id => dispatch(actions.viewAlbum(id)),
         onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
         onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
+        onalbumInit:() => dispatch(actions.init())
 
     };
 

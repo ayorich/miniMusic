@@ -16,8 +16,9 @@ export const viewAlbum = albumID => {
                 }
             }
         ).then(response => {
-            dispatch(albumDetails(response.data));
-            dispatch(setAlbumData(response.data));
+            localStorage.setItem('album', JSON.stringify(response.data));
+            dispatch(albumDetails());
+            dispatch(setAlbumData());
             // console.log(response);
         })
             .catch(err => {
@@ -28,11 +29,11 @@ export const viewAlbum = albumID => {
 }
 
 
-export const setAlbumData = data => {
-    // console.log(data)
+export const setAlbumData = () => {
+    const albumData = JSON.parse(localStorage.getItem('album'));
     return {
         type: actionTypes.GET_ALBUM_TRACKS,
-        payload: data
+        payload: albumData
     }
 }
 
@@ -42,7 +43,8 @@ export const setAlbumDataFailed = () => {
     }
 }
 
-export const albumDetails = albumDetails => {
+export const albumDetails = () => {
+    const albumDetails = JSON.parse(localStorage.getItem('album'));
     // console.log(albumDetails);
     const cover_xl = albumDetails.cover_xl;
     const title = albumDetails.title;
@@ -65,3 +67,12 @@ export const albumDetails = albumDetails => {
         payload: newKey
     }
 }
+
+export const init= ()=>{
+    return dispatch => {
+        dispatch(albumDetails());
+        dispatch(setAlbumData());
+    }
+}
+
+

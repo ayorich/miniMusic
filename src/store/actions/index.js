@@ -15,6 +15,7 @@ export {
 
 export {
     viewAlbum,
+    init,
 } from './musicAlbumBuilder';
 
 
