@@ -5,10 +5,10 @@ import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 import * as actions from '../../store/actions/index';
 
-import './Form.css';
+import './SearchBar.css';
 
 
-class Form extends Component {
+class SearchBar extends Component {
  state={
      value: '',
      disabled: true
@@ -23,7 +23,7 @@ class Form extends Component {
  }
 render(){
     return (
-      <div className="Form">
+      <div className="SearchBar">
         <Input
           value={this.state.value}
           placeholder="Search over 1,000,000 musics..."
@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => {
         dispatch(actions.searchLoading(spinnerLoading))
     };
 }
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(SearchBar);

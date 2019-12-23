@@ -1,4 +1,4 @@
-.Form {
+.SearchBar {
   background-color: #fff;
   border-radius: 10rem;
   display: flex;
@@ -6,6 +6,6 @@
   padding-left: 3rem;
   transition: all .3s;
 margin: auto; }
-  .Form:focus-within {
+  .SearchBar:focus-within {
     transform: translateY(-2px);
     box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08); }

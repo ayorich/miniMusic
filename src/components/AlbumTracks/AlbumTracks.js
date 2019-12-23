@@ -8,9 +8,10 @@ import './AlbumTracks.css'
 
 class AlbumTracks extends Component{
 
-       componentDidMount(){
-          this.props.onalbumInit();
-       }
+    componentDidMount(){
+        this.props.onalbumInit(); // to access the album data in local storage
+    }
+
     getAlbumDetails = () => {
             const cover_xl = this.props.albumTrack[0].cover_xl;
         const title = this.props.albumTrack[0].title;

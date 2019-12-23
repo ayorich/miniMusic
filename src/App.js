@@ -1,17 +1,29 @@
 import React, { Component } from "react";
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
-import MusicBuilder from './container/MusicBuilder/MusicBuilder'
+import MusicBuilder from './container/MusicBuilder/MusicBuilder';
+import AlbumList from './container/AlbumList/AlbumList';
+import Header from './components/Header/Header';
+
+
 
 class App extends Component {
 
 
 
   render(){
+    let routes = (
+      <Switch>
+        <Route path="/album" component={AlbumList} />
+        <Route path="/" exact component={MusicBuilder} />
+        <Redirect to="/" />
+      </Switch>
+    );
       return (
         <div className="App">
-          
-          <MusicBuilder />
+          <Header />
+          {routes}
         </div>
       );
   }

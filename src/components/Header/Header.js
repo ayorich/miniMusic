@@ -1,19 +1,20 @@
 import React from 'react';
 
-import Form from '../Form/Form';
+import SearchBar from '../SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
+import NavigationItems from '../NavigationItems/NavigationItems'
 
 import './Header.css';
 
 
-const header = (props) => {
+const header = () => {
 
 
     return (
         <div className="header">
             <Logo/>
-            <Form/>
-            <p>logIN</p>
+            <SearchBar/>
+            <NavigationItems/>
         </div>
     );
 
