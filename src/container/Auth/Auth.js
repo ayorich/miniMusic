@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
 import FormInput from '../../components/UI/FormInput/FormInput';
 import Button from '../../components/UI/Button/Button';
+import * as actions from '../../store/actions/index';
+import Spinner from '../../components/UI/Spinner/Spinner'
+
 
 import { checkValidity } from '../../shared/utility';
 import './Auth.css';
@@ -18,7 +21,7 @@ class Auth extends Component{
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Mail Address'
+                    placeholder: 'E-Mail Address'
                 },
                 value: '',
                 validation: {
@@ -59,6 +62,12 @@ class Auth extends Component{
          
         this.setState({ controls: updatedControls });
     }
+      submitHandler = ( event ) => {
+        event.preventDefault();
+        this.props.onAuth( this.state.controls.email.value, 
+            this.state.controls.password.value);
+    }
+
 
     render(){
         const formElementsArray = [];
@@ -68,7 +77,7 @@ class Auth extends Component{
                 config: this.state.controls[key]
             });
         }
-        console.log(formElementsArray)
+        // console.log(formElementsArray)
       
         let form = formElementsArray.map(formElement => (
             
@@ -82,20 +91,38 @@ class Auth extends Component{
                 touched={formElement.config.touched}
                 changed={(event) => this.inputChangedHandler(event, formElement.id)} />
         ));
+        if (this.props.loading) {
+            form = <Spinner />
+        }
         
         return(
             <div className='auth'>
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <div className='formbtn '>
-                    <Button className='btn '>SUBMIT</Button>
-
+                    <Button className='btn '>LOGIN</Button>
                     </div>
+                    <p>Are you not sign up yet? sign up</p>
                 </form>
                 
             </div>
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        // error: state.auth.error,
+        // isAuthenticated: state.auth.token !== null,
+        // authRedirectPath: state.auth.authRedirectPath
+    };
+};
 
-export default Auth;
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, password) => dispatch(actions.auth(email, password)),
+        // onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes';
-import * as actions from './index'
 import axios from 'axios';
 
 export const searchData = userInput => {
@@ -15,7 +14,6 @@ export const searchData = userInput => {
             }
           }
         ).then(response => {
-          dispatch(actions.searchLoading({ spinnerLoading: false }));
             dispatch(setData(response.data));
           })
           .catch(err => {

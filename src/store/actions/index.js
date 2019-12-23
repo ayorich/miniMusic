@@ -18,5 +18,8 @@ export {
     init,
 } from './musicAlbumBuilder';
 
+export{
+    auth
+}from './auth'
 
 export { searchLoading } from "./UIBuilder";

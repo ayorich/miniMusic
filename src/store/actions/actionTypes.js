@@ -15,3 +15,8 @@ export const VIEW_ALBUM_DETAILS = "VIEW_ALBUM_DETAILS";
 
 export const SEARCH_DATA_LOADING = "SEARCH_DATA_LOADING";
 
+
+export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAIL = 'AUTH_FAIL';
+
