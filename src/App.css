@@ -8,7 +8,7 @@
   display: grid;
   grid-template-rows: 10rem minmax(80rem, auto);
   grid-template-columns: 1.1fr 2fr 1.1fr;
-  grid-template-areas: "head head head" "list recipe shopping";
+  grid-template-areas: "head head head" "list details playlist";
   
 }
   @media only screen and (max-width: 68.75em) {

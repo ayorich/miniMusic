@@ -1,3 +1,5 @@
 .musicDetials {
   background-color: #F9F5F3;
-  border-top: 1px solid #fff;}
+  border-top: 1px solid #fff;
+grid-area: details;
+}

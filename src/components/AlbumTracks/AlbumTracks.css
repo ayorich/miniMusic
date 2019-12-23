@@ -1,7 +1,9 @@
 .album {
+  grid-area: playlist;
   padding: 0.5rem 1rem 3rem;
   display: flex;
   flex-direction: column;
+
  }
 
 .album__list {

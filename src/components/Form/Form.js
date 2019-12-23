@@ -18,7 +18,7 @@ class Form extends Component {
      this.setState({value:event.target.value, disabled:false})
  }
  searchHandler = () => {
-   this.props.onsearchLoading({spinnerLoading:true});
+  //  this.props.onsearchLoading({spinnerLoading:true});
   this.props.onsearchData(this.state.value)
  }
 render(){

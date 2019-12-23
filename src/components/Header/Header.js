@@ -6,13 +6,14 @@ import Logo from '../Logo/Logo';
 import './Header.css';
 
 
-const header = () => {
+const header = (props) => {
 
 
     return (
         <div className="header">
             <Logo/>
             <Form/>
+            <p>logIN</p>
         </div>
     );
 

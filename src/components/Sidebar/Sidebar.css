@@ -1,5 +1,6 @@
 .results{
-  padding: 0rem 0 3rem; 
+  padding: 0rem 0 3rem;
+  grid-area: list; 
 }
   
 .results__list {

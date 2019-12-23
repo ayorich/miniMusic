@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-        // loading:null
+  spinnerLoading:false
 };
 
 const reducer = (state = initialState, action) => {
