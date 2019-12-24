@@ -45,8 +45,6 @@ render(){
 const mapDispatchToProps = dispatch => {
     return {
       onsearchData: userInput => dispatch(actions.searchData(userInput)),
-      onsearchLoading: spinnerLoading =>
-        dispatch(actions.searchLoading(spinnerLoading))
     };
 }
 export default connect(null, mapDispatchToProps)(SearchBar);

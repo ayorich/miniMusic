@@ -8,7 +8,7 @@ const musicDataDisplay = (props) => {
     // console.log(props);
     let detailsDisplay = null;
     
-        // console.log(props.selectSongData.tracks);
+        // console.log(props.selectSongData);
         const time = props.selectSongData.duration;
         const minutes = Math.floor(time / 60);
         const seconds = time - minutes * 60;
@@ -36,7 +36,7 @@ const musicDataDisplay = (props) => {
                  <SquareTab detail={props.selectSongData.release_date}>RELEASED DATE</SquareTab>
                  <SquareTab detail={props.selectSongData.label}>LABEL</SquareTab>
             </div>)
-    detailsDisplay = props.selectSongData.displayType ? albumDisplay : listDisplay;
+    detailsDisplay = props.displayType ? albumDisplay : listDisplay;
     return detailsDisplay;
 }
 

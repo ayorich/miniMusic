@@ -5,6 +5,7 @@ import axios from 'axios';
 export const viewAlbum = albumID => {
     // console.log(albumID)
     return dispatch => {
+        dispatch(setAlbumDataStart());
         axios(
             `https://deezerdevs-deezer.p.rapidapi.com/album/${albumID}`,
             {
@@ -18,7 +19,7 @@ export const viewAlbum = albumID => {
         ).then(response => {
             localStorage.setItem('album', JSON.stringify(response.data));
             dispatch(albumDetails());
-            dispatch(setAlbumData());
+            dispatch(setAlbumDataSuccess());
             // console.log(response);
         })
             .catch(err => {
@@ -28,11 +29,15 @@ export const viewAlbum = albumID => {
     };
 }
 
-
-export const setAlbumData = () => {
+export const setAlbumDataStart = () =>{
+    return{
+        type: actionTypes.GET_ALBUM_TRACKS_SUCCESS
+    }
+}
+export const setAlbumDataSuccess = () => {
     const albumData = JSON.parse(localStorage.getItem('album'));
     return {
-        type: actionTypes.GET_ALBUM_TRACKS,
+        type: actionTypes.GET_ALBUM_TRACKS_SUCCESS,
         payload: albumData
     }
 }
@@ -57,8 +62,6 @@ export const albumDetails = () => {
     const newKey = {
         ...albumDetails,
         album: album,
-        displayType:true  //change display between ALBUM DISPLAY(TRUE) AND LIST DISPLAY DETAILS(FALSE)
-
     }
     // console.log(newKey);
 
@@ -71,7 +74,7 @@ export const albumDetails = () => {
 export const init= ()=>{
     return dispatch => {
         dispatch(albumDetails());
-        dispatch(setAlbumData());
+        dispatch(setAlbumDataSuccess());
     }
 }
 

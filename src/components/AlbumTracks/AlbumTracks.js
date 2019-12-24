@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
+import Spinner from '../UI/Spinner/Spinner'
 import './AlbumTracks.css'
 
 
@@ -13,9 +14,9 @@ class AlbumTracks extends Component{
     }
 
     getAlbumDetails = () => {
-            const cover_xl = this.props.albumTrack[0].cover_xl;
-        const title = this.props.albumTrack[0].title;
-        const albumID = this.props.albumTrack[0].id;
+            const cover_xl = this.props.album.cover_xl;
+        const title = this.props.album.title;
+        const albumID = this.props.album.id;
             const album = {
                 id: albumID,
                 cover_xl: cover_xl,
@@ -41,14 +42,20 @@ class AlbumTracks extends Component{
 
     }
     render(){
-        // console.log(this.props.albumTrack)
-        const trackData = this.props.albumTrack;
+        console.log(this.props.album)
+        const album = this.props.album;
+        let albumTracks= <AlbumTrackList album={album}
+         selectedMusicHandler={this.selectedMusicHandler} />
+
+         if (this.props.loading) {
+            albumTracks = <Spinner />
+        }
 
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
             <ul className="album__list">
-             {this.props.albumTrack.length !== 0 ? <AlbumTrackList trackData={trackData} selectedMusicHandler={this.selectedMusicHandler} /> : null}
+                    {albumTracks}
             </ul>
             </div>
         )
@@ -59,7 +66,8 @@ class AlbumTracks extends Component{
 
 const mapStateToProps = state => {
     return {
-        albumTrack: state.musicAlbum,
+        album: state.musicAlbum.album,
+        loading: state.musicAlbum.loading,
 
     };
 };

@@ -3,9 +3,9 @@ import React from "react";
 import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
-    // console.log(props.trackData)
+    // console.log(props.album.id)
 
-    const list = props.trackData[0].tracks.data;
+    const list = props.album.tracks.data;
     // console.log(list)
 
     const dataArray = [];

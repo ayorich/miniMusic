@@ -15,13 +15,13 @@ class MusicDetails extends Component {
 
     render(){
 
-        // console.log(this.props.selectSong[0]);
-        const selectSong = this.props.selectSong[0];
+        console.log(this.props.selectSong);
+        const selectSong = this.props.selectSong;
         return(
             <div className="musicDetials">
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
-                {selectSong ? <MusicDataDisplay selectSongData={selectSong} /> : null}
+                {selectSong ? <MusicDataDisplay selectSongData={selectSong} displayType={this.props.displayType} /> : null}
                 {selectSong? <Button className='btn'
                     onClick={() => this.props.onviewAlbum(selectSong.album.id)}
                 >View Album</Button> : null}
@@ -34,7 +34,8 @@ class MusicDetails extends Component {
 
 const mapStateToProps = state => {
     return {
-        selectSong: state.musicDetailsBuilder,
+        selectSong: state.musicDetailsBuilder.song,
+        displayType: state.musicDetailsBuilder.displayType,
         musicState: state.musicPlayer,
 
     };

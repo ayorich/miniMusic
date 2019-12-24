@@ -1,14 +1,24 @@
 import * as actionTypes from '../actions/actionTypes'
 
 
-const initialState = [];
+const initialState ={
+    displayType: false //change display between ALBUM DISPLAY(TRUE) AND LIST DISPLAY DETAILS(FALSE)
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SELECTED_MUSIC:
-            return [action.payload]
+            return {
+                ...state,
+                song:action.payload,
+                displayType: false
+            }
         case actionTypes.VIEW_ALBUM_DETAILS:
-            return [action.payload]
+            return {
+                ...state,
+                song:action.payload,
+                displayType: true
+            }
         default:
             return state;
     }
