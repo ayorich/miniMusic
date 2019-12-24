@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import FormInput from '../../components/UI/FormInput/FormInput';
 import Button from '../../components/UI/Button/Button';
 import * as actions from '../../store/actions/index';
@@ -71,9 +71,13 @@ class Auth extends Component{
     switchAuthModeHandler = () => {
         this.setState({ isSignup: false });
     }
-
+ 
 
     render(){
+        let authRedirect = null;
+        if (this.props.isAuthenticated) {
+            authRedirect = <Redirect to={this.props.authRedirectPath} />
+        }
         const formElementsArray = [];
         for (let key in this.state.controls) {
             formElementsArray.push({
@@ -101,6 +105,7 @@ class Auth extends Component{
         
         return(
             <div className='auth'>
+                {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <div className='formbtn '>
@@ -118,7 +123,7 @@ const mapStateToProps = state => {
         loading: state.auth.loading,
         // error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
-        // authRedirectPath: state.auth.authRedirectPath
+        authRedirectPath: state.auth.authRedirectPath
     };
 };
 
