@@ -23,3 +23,9 @@ export{
     logout,
     authCheckState
 }from './auth'
+
+
+export {
+    hideSearchbar,
+    showSearchbar
+} from './UIcontrol'

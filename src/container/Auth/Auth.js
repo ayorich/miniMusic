@@ -63,7 +63,7 @@ class Auth extends Component{
         this.setState({ controls: updatedControls });
     }
       submitHandler = ( event ) => {
-          console.log(this.state.isSignup)
+        //   console.log(this.state.isSignup)
         event.preventDefault();
         this.props.onAuth( this.state.controls.email.value, 
             this.state.controls.password.value, this.state.isSignup);
@@ -76,6 +76,8 @@ class Auth extends Component{
     render(){
         // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
         // console.log(this.props.isAuthenticated)
+        console.log(this.props.history)
+
         let authRedirect = null;
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={this.props.authRedirectPath} />
