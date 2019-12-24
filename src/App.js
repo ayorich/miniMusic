@@ -24,12 +24,21 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
-        <Route path="/logout" component={Logout} />
-        <Route path="/album" component={AlbumList} />
         <Route path="/" exact component={MusicBuilder} />
         <Redirect to="/" />
       </Switch>
     );
+    if (this.props.isAuthenticated){
+      routes = (
+        <Switch>
+          <Route path="/auth" component={Auth} />
+          <Route path="/logout" component={Logout} />
+          {/* <Route path="/album" component={AlbumList} /> */}
+          <Route path="/" exact component={MusicBuilder} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
       return (
         <div className="App">
           <Header />
