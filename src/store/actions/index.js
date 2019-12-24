@@ -19,5 +19,7 @@ export {
 } from './musicAlbumBuilder';
 
 export{
-    auth
+    auth,
+    logout,
+    authCheckState
 }from './auth'

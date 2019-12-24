@@ -30,7 +30,17 @@ const reducer = (state = initialState, action) => {
                 authRedirectPath: action.path
             }
         case actionTypes.AUTH_FAIL:
-            return [];
+            return {
+                ...state,
+                error: action.error,
+                loading: false
+            }
+        case actionTypes.AUTH_LOGOUT:
+            return{
+                ...state,
+                token:null,
+                userId:null
+            }
         default:
             return state;
     }

@@ -51,17 +51,20 @@ export const setAlbumDataFailed = () => {
 export const albumDetails = () => {
     const albumDetails = JSON.parse(localStorage.getItem('album'));
     // console.log(albumDetails);
-    const cover_xl = albumDetails.cover_xl;
-    const title = albumDetails.title;
-    const albumID = albumDetails.id;
-    const album = {
-        cover_xl: cover_xl,
-        title: title,
-        id: albumID
-    }
-    const newKey = {
-        ...albumDetails,
-        album: album,
+    let newKey=null;
+    if(albumDetails){
+        const cover_xl = albumDetails.cover_xl;
+        const title = albumDetails.title;
+        const albumID = albumDetails.id;
+         const album = {
+            cover_xl: cover_xl,
+            title: title,
+            id: albumID
+        }
+         newKey = {
+            ...albumDetails,
+            album: album,
+        }
     }
     // console.log(newKey);
 
