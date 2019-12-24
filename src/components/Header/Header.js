@@ -13,7 +13,7 @@ class Header extends Component{
         return(
             <div className="header">
                 <Logo />
-                <SearchBar />
+                {this.props.searchBarDisplay? <SearchBar /> : null}
                 <NavigationItems isAuthenticated={this.props.isAuthenticated} />
             </div>
         )
@@ -23,6 +23,7 @@ class Header extends Component{
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
+        searchBarDisplay: state.UIcontrol.searchBar
     };
 };
 

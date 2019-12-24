@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
-const albumList =() =>{
 
-    return (
-        <p>am album list</p>
-    )
+class AlbumList extends Component{
+
+    render(){
+        if (this.props.history.location.pathname !== '/') {
+            this.props.onhideSearchbar()
+        }
+
+        return(
+
+            <p>am album list</p>
+        )
+    }
 }
 
-export default albumList;
+const mapDispatchToProps = dispatch => {
+    return {
+        onhideSearchbar: () => dispatch(actions.hideSearchbar())
+    };
+};
+
+export default connect(null, mapDispatchToProps)(AlbumList);

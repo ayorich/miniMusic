@@ -76,7 +76,10 @@ class Auth extends Component{
     render(){
         // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
         // console.log(this.props.isAuthenticated)
-        console.log(this.props.history)
+        // console.log(this.props.history.location.pathname)
+        if (this.props.history.location.pathname !== '/'){
+            this.props.onhideSearchbar()
+        }
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
@@ -134,6 +137,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
+        onhideSearchbar: () => dispatch(actions.hideSearchbar())
     };
 };
 
