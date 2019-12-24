@@ -63,9 +63,13 @@ class Auth extends Component{
         this.setState({ controls: updatedControls });
     }
       submitHandler = ( event ) => {
+          console.log(this.state.isSignup)
         event.preventDefault();
         this.props.onAuth( this.state.controls.email.value, 
-            this.state.controls.password.value);
+            this.state.controls.password.value, this.state.isSignup);
+    }
+    switchAuthModeHandler = () => {
+        this.setState({ isSignup: false });
     }
 
 
@@ -100,9 +104,9 @@ class Auth extends Component{
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <div className='formbtn '>
-                    <Button className='btn '>LOGIN</Button>
+                        <Button className='btn '>{this.state.isSignup ? 'LOG IN' : 'SIGN UP'}</Button>
                     </div>
-                    <p>Are you not sign up yet? sign up</p>
+                    <p>Are you not sign up yet? <span className='signup' onClick={this.switchAuthModeHandler}>sign up </span></p>
                 </form>
                 
             </div>
@@ -113,14 +117,14 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         // error: state.auth.error,
-        // isAuthenticated: state.auth.token !== null,
+        isAuthenticated: state.auth.token !== null,
         // authRedirectPath: state.auth.authRedirectPath
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password)),
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
         // onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
     };
 };

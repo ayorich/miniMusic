@@ -8,7 +8,7 @@ import musicListReducer from './store/reducers/musicListBuilder';
 import musicDetailsReducer from './store/reducers/musicDetailsBuilder';
 import musicPlayerReducer from './store/reducers/musicPlayer';
 import musicAlbumReducer from './store/reducers/musicAlbumBuilder';
-import auth from "./store/reducers/auth";
+import authReducer from "./store/reducers/auth";
 
 
 import './index.css';
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   musicDetailsBuilder: musicDetailsReducer,
   musicPlayer: musicPlayerReducer,
   musicAlbum: musicAlbumReducer,
-  auth: auth
+  auth: authReducer
 });
 
 const store = createStore(
