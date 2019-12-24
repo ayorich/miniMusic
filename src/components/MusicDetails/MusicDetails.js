@@ -15,7 +15,7 @@ class MusicDetails extends Component {
 
     render(){
 
-        console.log(this.props.selectSong);
+        // console.log(this.props.selectSong);
         const selectSong = this.props.selectSong;
         return(
             <div className="musicDetials">

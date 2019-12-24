@@ -31,7 +31,7 @@ export const viewAlbum = albumID => {
 
 export const setAlbumDataStart = () =>{
     return{
-        type: actionTypes.GET_ALBUM_TRACKS_SUCCESS
+        type: actionTypes.GET_ALBUM_TRACKS_START
     }
 }
 export const setAlbumDataSuccess = () => {

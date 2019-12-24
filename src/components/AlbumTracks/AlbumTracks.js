@@ -42,7 +42,7 @@ class AlbumTracks extends Component{
 
     }
     render(){
-        console.log(this.props.album)
+        // console.log(this.props.loading)
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
          selectedMusicHandler={this.selectedMusicHandler} />

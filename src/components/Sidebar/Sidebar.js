@@ -57,7 +57,7 @@ class Sidebar extends Component {
   };
 
   render() {
-    
+    // console.log(this.props.listData)
     let list = <SidebarList
       listData={this.props.listData}
       selectedMusicHandler={this.selectedMusicHandler}
