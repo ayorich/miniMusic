@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import MusicImage from './MusicImage/MusicImage';
 import MusicDataDisplay from './MusicDataDisplay/MusicDataDisplay';
 import MusicPlayer from './MusicPlayer/MusicPlayer';
@@ -11,20 +12,42 @@ import * as actions from '../../store/actions/index';
 import './MusicDetails.css'
 
 class MusicDetails extends Component {
+    state={
+        textContent: 'View Album',
+        authRedirect:null
+    }
+    mouseOver = () =>{
+        if (!this.props.isAuthenticated){
+            this.setState({ textContent: '  LOG IN  '}) // Space leave around login for styling purpose
+        }
+    }
+    mouseOut = () => {
+        if (!this.props.isAuthenticated) {
+        this.setState({ textContent: 'View Album' })}
+
+    }
+    onButtonClicked = (selectSong) => {
+    if (!this.props.isAuthenticated) {
+        this.setState({ authRedirect: <Redirect to={'/auth'} /> })
+    }
+    this.props.onviewAlbum(selectSong.album.id)
+    }
 
 
     render(){
-
         const selectSong = this.props.selectSong;
-        // console.log(selectSong);
         return(
             <div className="musicDetials">
+                {this.state.authRedirect}
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 {selectSong? <MusicDataDisplay selectSongData={selectSong} displayType={this.props.displayType} /> : null}
-                {selectSong? <Button className='btn'
-                    onClick={() => this.props.onviewAlbum(selectSong.album.id)}
-                >View Album</Button> : null}
+                {selectSong? <Button 
+                    className='btn btn-signin'
+                    onClick={() => this.onButtonClicked(selectSong)}
+                    onMouseOver={() => this.mouseOver()}
+                    onMouseOut={() => this.mouseOut()}
+                >{this.state.textContent}</Button> : null}
             </div>
         )
     }
@@ -37,6 +60,7 @@ const mapStateToProps = state => {
         selectSong: state.musicDetailsBuilder.song,
         displayType: state.musicDetailsBuilder.displayType,
         musicState: state.musicPlayer,
+        isAuthenticated: state.auth.token !== null,
 
     };
 };
