@@ -10,7 +10,7 @@ import './AlbumTracks.css'
 class AlbumTracks extends Component{
 
     componentDidMount(){
-        this.props.onalbumInit(); // to access the album data in local storage
+        this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
     }
 
     getAlbumDetails = () => {
@@ -55,7 +55,7 @@ class AlbumTracks extends Component{
             <div className="album">
             <h2 className="heading-2">Track List</h2>
             <ul className="album__list">
-                    {albumTracks}
+              {this.props.isAuthenticated ? albumTracks :null}
             </ul>
             </div>
         )
@@ -68,7 +68,7 @@ const mapStateToProps = state => {
     return {
         album: state.musicAlbum.album,
         loading: state.musicAlbum.loading,
-
+        isAuthenticated: state.auth.token !== null,
     };
 };
 
@@ -77,7 +77,7 @@ const mapDispatchToProps = dispatch => {
         // onviewAlbum: id => dispatch(actions.viewAlbum(id)),
         onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
         onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
-        onalbumInit:() => dispatch(actions.init())
+        onalbumInit: () => dispatch(actions.albuminit()) //GETTING THE ALBUM DATA FROM LOCAL STORAGE
 
     };
 

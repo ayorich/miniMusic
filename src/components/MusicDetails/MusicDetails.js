@@ -14,7 +14,7 @@ import './MusicDetails.css'
 class MusicDetails extends Component {
     state={
         textContent: 'View Album',
-        authRedirect:null
+        authRedirect:null,
     }
     mouseOver = () =>{
         if (!this.props.isAuthenticated){
@@ -30,7 +30,7 @@ class MusicDetails extends Component {
     if (!this.props.isAuthenticated) {
         this.setState({ authRedirect: <Redirect to={'/auth'} /> })
     }
-    this.props.onviewAlbum(selectSong.album.id)
+        this.props.onviewAlbum(selectSong.album.id)
     }
 
 
@@ -41,12 +41,14 @@ class MusicDetails extends Component {
                 {this.state.authRedirect}
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
-                {selectSong? <MusicDataDisplay selectSongData={selectSong} displayType={this.props.displayType} /> : null}
+                {selectSong? <MusicDataDisplay 
+                                selectSongData={selectSong} 
+                                displayType={this.props.displayType} /> : null}
                 {selectSong? <Button 
-                    className='btn btn-signin'
-                    onClick={() => this.onButtonClicked(selectSong)}
-                    onMouseOver={() => this.mouseOver()}
-                    onMouseOut={() => this.mouseOut()}
+                                className='btn btn-signin'
+                                onClick={() => this.onButtonClicked(selectSong)}
+                                onMouseOver={() => this.mouseOver()}
+                                onMouseOut={() => this.mouseOut()}
                 >{this.state.textContent}</Button> : null}
             </div>
         )
@@ -68,8 +70,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onviewAlbum: id => dispatch(actions.viewAlbum(id)),
-        
-
     };
 
 }

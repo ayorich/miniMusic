@@ -18,8 +18,8 @@ export const viewAlbum = albumID => {
             }
         ).then(response => {
             localStorage.setItem('album', JSON.stringify(response.data));
-            dispatch(albumDetails());
-            dispatch(setAlbumDataSuccess());
+            // dispatch(albumDetails());
+            // dispatch(setAlbumDataSuccess());
             // console.log(response);
         })
             .catch(err => {
@@ -49,6 +49,7 @@ export const setAlbumDataFailed = () => {
 }
 
 export const albumDetails = () => {
+    //ACTION TO DISPLAY DATA TO CENTER LAYOUT 
     const albumDetails = JSON.parse(localStorage.getItem('album'));
     // console.log(albumDetails);
     let newKey=null;
@@ -74,7 +75,7 @@ export const albumDetails = () => {
     }
 }
 
-export const init= ()=>{
+export const albuminit= ()=>{
     return dispatch => {
         dispatch(albumDetails());
         dispatch(setAlbumDataSuccess());

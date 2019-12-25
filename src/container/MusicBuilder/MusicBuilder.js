@@ -19,11 +19,16 @@ class MusicBuilder extends Component{
           <React.Fragment>
             <Sidebar />
             <MusicDetails />
-            <AlbumTracks />
+             <AlbumTracks />
           </React.Fragment>
         );
     }
 }
+// const mapStateToProps = state => {
+//   return{
+//     isAuthenticated: state.auth.token !== null,
+//   }
+// }
 const mapDispatchToProps = dispatch => {
   return {
     onshowSearchbar: () => dispatch(actions.showSearchbar())
