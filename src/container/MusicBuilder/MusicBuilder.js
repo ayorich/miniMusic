@@ -9,11 +9,13 @@ import * as actions from '../../store/actions/index';
 // import './MusicBuilder.css';
 
 class MusicBuilder extends Component{
-    
-    render() {
+    componentDidMount(){
       if (this.props.history.location.pathname === '/') {
         this.props.onshowSearchbar()
       }
+    }
+    render() {
+     
 
         return (
           <React.Fragment>

@@ -49,6 +49,11 @@ class Auth extends Component{
         isSignup: true
     }
 
+    componentDidMount(){
+        if (this.props.history.location.pathname !== '/') {
+            this.props.onhideSearchbar()
+        }
+    }
     inputChangedHandler = (event, controlName) => {
         const updatedControls ={
             ...this.state.controls,
@@ -76,10 +81,7 @@ class Auth extends Component{
     render(){
         // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
         // console.log(this.props.isAuthenticated)
-        // console.log(this.props.history.location.pathname)
-        if (this.props.history.location.pathname !== '/'){
-            this.props.onhideSearchbar()
-        }
+        
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
@@ -95,7 +97,6 @@ class Auth extends Component{
         // console.log(formElementsArray)
       
         let form = formElementsArray.map(formElement => (
-            
             <FormInput
                 key={formElement.id}
                 elementType={formElement.config.elementType}

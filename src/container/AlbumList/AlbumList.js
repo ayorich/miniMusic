@@ -4,11 +4,13 @@ import * as actions from '../../store/actions/index';
 
 
 class AlbumList extends Component{
-
-    render(){
-        if (this.props.history.location.pathname !== '/') {
-            this.props.onhideSearchbar()
+        componentDidMount(){
+            if (this.props.history.location.pathname !== '/') {
+                this.props.onhideSearchbar()
+            }
         }
+    render(){
+        
 
         return(
 

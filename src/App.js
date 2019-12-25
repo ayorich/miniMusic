@@ -31,8 +31,8 @@ class App extends Component {
     if (this.props.isAuthenticated){
       routes = (
         <Switch>
-          <Route path="/logout" component={Logout} />
           <Route path="/album" component={AlbumList} />
+          <Route path="/logout" component={Logout} />
           <Route path="/" exact component={MusicBuilder} />
           <Redirect to="/" />
         </Switch>

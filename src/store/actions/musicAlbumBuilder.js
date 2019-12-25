@@ -18,8 +18,8 @@ export const viewAlbum = albumID => {
             }
         ).then(response => {
             localStorage.setItem('album', JSON.stringify(response.data));
-            // dispatch(albumDetails());
-            // dispatch(setAlbumDataSuccess());
+            dispatch(albumDetails());
+            dispatch(setAlbumDataSuccess());
             // console.log(response);
         })
             .catch(err => {
