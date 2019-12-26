@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from 'axios';
+import { searchInstance as axios } from '../../axios-base';
 
 
 export const viewAlbum = albumID => {
@@ -7,7 +7,7 @@ export const viewAlbum = albumID => {
     return dispatch => {
         dispatch(setAlbumDataStart());
         axios(
-            `https://deezerdevs-deezer.p.rapidapi.com/album/${albumID}`,
+            `/album/${albumID}`,
             {
                 method: "GET",
                 headers: {

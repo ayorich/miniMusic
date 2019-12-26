@@ -1,11 +1,11 @@
 import * as actionTypes from './actionTypes';
-import axios from 'axios';
+import { searchInstance as axios } from '../../axios-base';
 
 export const searchData = userInput => {
     return dispatch => {
       dispatch(setDatastart());
         axios(
-          `https://deezerdevs-deezer.p.rapidapi.com/search?q=${userInput}`,
+          `/search?q=${userInput}`,
           {
             method: "GET",
             headers: {
@@ -28,7 +28,7 @@ export const searchData = userInput => {
 }
 
 
-const axiosRequest =(url, proxyurl) => axios(`${proxyurl}${url}`,
+const axiosRequest = (proxyurl, url) => axios(`${proxyurl}${url}`,
   {
     method: "GET",
     headers: {
@@ -48,7 +48,7 @@ export const getnextList = url => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
       dispatch(setDatastart());
-    axiosRequest(url, proxyurl).then(response => {
+    axiosRequest(proxyurl, url).then(response => {
       dispatch(setDatasuccess(response.data));
       // console.log(response.data);
       // console.log(response);
@@ -65,7 +65,7 @@ export const getprevList = url => {
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
       dispatch(setDatastart());
-    axiosRequest(url, proxyurl).then(response => {
+    axiosRequest(proxyurl, url).then(response => {
       dispatch(setDatasuccess(response.data));
       // console.log(response.data);
       // console.log(response);
