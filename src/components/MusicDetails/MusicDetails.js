@@ -20,6 +20,11 @@ class MusicDetails extends Component {
         textContent: 'View Album',
         authRedirect:null,
     }
+    componentDidMount(){
+        if (this.props.isAuthenticated && this.props.selectSong ){
+            this.props.onviewAlbum(this.props.selectSong.album.id)
+        }
+    }
     mouseOver = () =>{
         if (!this.props.isAuthenticated){
             this.setState({ textContent: '  LOG IN  '}) // Space leave around login for styling purpose
@@ -30,14 +35,15 @@ class MusicDetails extends Component {
         this.setState({ textContent: 'View Album' })}
 
     }
-    onButtonClicked = (selectSong) => {
-    if (!this.props.isAuthenticated) {
+    
+  
+    onButtonClicked =  (selectSong) => {
+        if (this.props.isAuthenticated){
+            return this.props.onviewAlbum(selectSong.album.id)
+        }
         this.setState({ authRedirect: <Redirect to={'/auth'} /> })
     }
-        this.props.onviewAlbum(selectSong.album.id)
-    }
-
-
+    
     render(){
         const selectSong = this.props.selectSong;
         return(
