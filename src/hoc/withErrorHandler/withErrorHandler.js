@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from '../../components/UI/Modal/Modal';
 
 
 const withErrorHandler = (WrappedComponent, axios) => {
@@ -6,8 +7,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
         state = {
             error: null
         }
-
-        componentWillMount() {
+        
+        componentDidMount() {
             this.reqInterceptor = axios.interceptors.request.use(req => {
                 this.setState({ error: null });
                 return req;
@@ -22,16 +23,19 @@ const withErrorHandler = (WrappedComponent, axios) => {
             axios.interceptors.response.eject(this.resInterceptor);
         }
 
-        // errorConfirmedHandler = () => {
-        //     this.setState({ error: null });
-        // }
+        errorConfirmedHandler = () => {
+            this.setState({ error: null });
+        }
 
         render() {
             return (
                 <React.Fragment>
-                    
+                    <Modal
+                        show={this.state.error}
+                        modalClosed={this.errorConfirmedHandler}>
+                            
                         {this.state.error ? this.state.error.message : null}
-                    
+                    </Modal>
                     <WrappedComponent {...this.props} />
                 </React.Fragment>
             );
