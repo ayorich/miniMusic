@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import { searchInstance as axios } from '../../axios-base';
+
 import MusicImage from './MusicImage/MusicImage';
 import MusicDataDisplay from './MusicDataDisplay/MusicDataDisplay';
 import MusicPlayer from './MusicPlayer/MusicPlayer';
@@ -74,4 +78,4 @@ const mapDispatchToProps = dispatch => {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MusicDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(MusicDetails, axios));

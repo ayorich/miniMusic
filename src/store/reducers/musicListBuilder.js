@@ -22,7 +22,11 @@ const reducer = (state = initialState, action) => {
         loading: false
       }
     case actionTypes.FETCH_DATA_FAILED:
-      return {};
+      return {
+          ...state,
+        loading: false
+
+      };
     default:
       return state;
   }

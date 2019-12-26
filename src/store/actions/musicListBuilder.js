@@ -21,7 +21,7 @@ export const searchData = userInput => {
           })
           .catch(err => {
             dispatch(setDataFailed(err));
-            console.log(err);
+            // console.log(err);
           });
     };
    

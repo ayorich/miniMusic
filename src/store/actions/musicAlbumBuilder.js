@@ -25,7 +25,7 @@ export const viewAlbum = albumID => {
         })
             .catch(err => {
                 dispatch(setAlbumDataFailed(err));
-                console.log(err);
+                // console.log(err);
             });
     };
 }

@@ -17,11 +17,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 album: action.payload,
                 loading:false
-
             }
 
         case actionTypes.GET_ALBUM_TRACKS_FAILED:
-            return {};
+            return {
+                ...state,
+                loading:false
+            };
         default:
             return state;
     }
