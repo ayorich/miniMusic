@@ -77,7 +77,7 @@ const mapDispatchToProps = dispatch => {
         // onviewAlbum: id => dispatch(actions.viewAlbum(id)),
         onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
         onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
-        onalbumInit: () => dispatch(actions.albuminit()) //GETTING THE ALBUM DATA FROM LOCAL STORAGE
+        onalbumInit: () => dispatch(actions.albumInit()) //GETTING THE ALBUM DATA FROM LOCAL STORAGE
 
     };
 
