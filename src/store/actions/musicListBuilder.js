@@ -55,7 +55,6 @@ export const getnextList = url => {
     })
       .catch(err => {
         dispatch(setDataFailed(err));
-        console.log(err);
       });
   };
 }
@@ -72,7 +71,6 @@ export const getprevList = url => {
     })
       .catch(err => {
         dispatch(setDataFailed(err));
-        console.log(err);
       });
   };
 }

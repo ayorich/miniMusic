@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import {authInstance as axios} from '../../axios-base';
+
 import FormInput from '../../components/UI/FormInput/FormInput';
 import Button from '../../components/UI/Button/Button';
 import * as actions from '../../store/actions/index';
@@ -68,7 +72,6 @@ class Auth extends Component{
         this.setState({ controls: updatedControls });
     }
       submitHandler = ( event ) => {
-        //   console.log(this.state.isSignup)
         event.preventDefault();
         this.props.onAuth( this.state.controls.email.value, 
             this.state.controls.password.value, this.state.isSignup);
@@ -110,9 +113,10 @@ class Auth extends Component{
         if (this.props.loading) {
             form = <Spinner />
         }
-        
         return(
             <div className='auth'>
+                {/* {this.props.error} */}
+
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
@@ -129,7 +133,6 @@ class Auth extends Component{
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        // error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
         authRedirectPath: state.auth.authRedirectPath
     };
@@ -142,4 +145,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Auth, axios));

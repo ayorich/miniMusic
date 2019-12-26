@@ -1,6 +1,7 @@
-import axios from 'axios';
-
 import * as actionTypes from './actionTypes';
+import { authInstance as axios } from '../../axios-base';
+
+
 
 export const auth = (email, password, isSignup) =>{
         return dispatch =>{
@@ -10,12 +11,11 @@ export const auth = (email, password, isSignup) =>{
                 password: password,
                 returnSecureToken: true
             };
-            // console.log(isSignup)
                 //SIGN UP URL
-            let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA6du4aZpOsjsO36_cDCy2zyDFae_mT8e8';
+            let url = '/accounts:signUp?key=AIzaSyA6du4aZpOsjsO36_cDCy2zyDFae_mT8e8';
             if(isSignup){
                 //SIGN IN URL
-                url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA6du4aZpOsjsO36_cDCy2zyDFae_mT8e8'
+                url = '/accounts:signInWithPassword?key=AIzaSyA6du4aZpOsjsO36_cDCy2zyDFae_mT8e8'
             }
 
             axios.post(url, authData)
@@ -30,13 +30,19 @@ export const auth = (email, password, isSignup) =>{
                     console.log(response.data)
                 }
                 )
-                .catch(err =>{
-                    console.log(err.response)
-                    dispatch(authFail(err))
+                .catch(error =>{
+                    // console.log(error)
+                    dispatch(authFail(error))
                 })
         }
 }
-
+// {
+//     "error": {
+//         "errors": [],
+//         "code": 400,
+//         "message": "CREDENTIAL_TOO_OLD_LOGIN_AGAIN"
+//     }
+// }
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START
@@ -60,10 +66,9 @@ export const logout = () => {
     };
 };
 
-export const authFail = (error) => {
+export const authFail = () => {
     return {
         type: actionTypes.AUTH_FAIL,
-        error: error
     };
 };
 
