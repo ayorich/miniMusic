@@ -78,8 +78,8 @@ export const albumDetails = () => {
 
 export const albumInit= ()=>{
     return dispatch => {
-        dispatch(albumDetails());
         dispatch(setAlbumDataSuccess());
+        dispatch(albumDetails());
     }
 }
 

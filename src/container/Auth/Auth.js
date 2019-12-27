@@ -83,7 +83,6 @@ class Auth extends Component{
 
     render(){
         // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
-        // console.log(this.props.isAuthenticated)
         
 
         let authRedirect = null;
