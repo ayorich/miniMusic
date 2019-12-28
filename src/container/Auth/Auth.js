@@ -48,9 +48,25 @@ class Auth extends Component{
                 },
                 valid: false,
                 touched: false
+            },
+            confirmPassword: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'password',
+                    placeholder: 'confirmPassword'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 6
+                },
+                valid: false,
+                touched: false
             }
+
         },
-        isSignup: true
+        isSignup: true,
+        passError: false
     }
 
     componentDidMount(){
@@ -73,8 +89,11 @@ class Auth extends Component{
     }
 
     submitHandler = ( event ) => {
-          console.log(event.target.value)
         event.preventDefault();
+        if (this.state.controls.password.value !== this.state.controls.confirmPassword.value && !this.state.isSignup){
+            return this.setState({passError : true})
+        }
+        this.setState({ passError: false })
         this.props.onAuth( this.state.controls.email.value, 
             this.state.controls.password.value, this.state.isSignup);
     }
@@ -87,7 +106,6 @@ class Auth extends Component{
     render(){
         // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
         
-
         let authRedirect = null;
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={this.props.authRedirectPath} />
@@ -112,6 +130,11 @@ class Auth extends Component{
                 touched={formElement.config.touched}
                 changed={(event) => this.inputChangedHandler(event, formElement.id)} />
         ));
+        if(this.state.isSignup){
+            //TO DISPLAY SIGN IN PAGE
+            form =form.slice(0,2)
+        }
+
         if (this.props.loading) {
             form = <Spinner />
         }
@@ -122,10 +145,14 @@ class Auth extends Component{
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
+                    {this.state.passError? <label className="passwordError">***Please enter the same password again.</label>: null}
                     <div className='formbtn '>
                         <Button className='btn '>{this.state.isSignup ? 'LOG IN' : 'SIGN UP'}</Button>
                     </div>
-                    <p>Are you not sign up yet? <span className='signup' onClick={this.switchAuthModeHandler}>sign up </span></p>
+                   {this.state.isSignup? <p className='signup'>
+                         Don't have an account? 
+                        <span className='signup__link' onClick={this.switchAuthModeHandler}> SIGN UP </span>
+                    </p>: null}
                 </form>
                 
             </div>

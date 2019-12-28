@@ -14,6 +14,17 @@ margin-top: 1rem;
 margin-left: 23rem;
     
 }
-.signup{
+.signup__link{
   cursor: pointer;
+  color: #F48982;
+}
+.signup{
+  font-size: 1.3rem;
+  margin: 4rem;
+  margin-left: 8rem;
+}
+.passwordError{
+  color: #F48982;
+  font-size: 1.3rem;
+  margin-left: 5rem;
 }
