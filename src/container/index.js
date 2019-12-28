@@ -15,3 +15,26 @@
     //     // this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
 
     // }
+
+
+// import React from 'react';
+// import Style from 'style-it';
+
+// class Intro extends React.Component {
+//     render() {
+//         return (
+//             <Style>
+//                 {`
+        
+//         #heart:before,
+        
+       
+//      `}
+
+//             <div id="heart" />
+//             </Style>
+//         )
+// }
+// }
+
+// export default Intro;

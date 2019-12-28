@@ -11,7 +11,6 @@ import MusicPlayer from './MusicPlayer/MusicPlayer';
 import Button from '../UI/Button/Button';
 import Spinner from '../UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
-import Modal from '../UI/Modal/Modal';
 
 
 
@@ -22,17 +21,16 @@ class MusicDetails extends Component {
     state={
         textContent: 'View Album',
         authRedirect:null,
-        updateId:null,
+        updateME:null,
         
     }
     componentDidMount(){
         if (this.props.isAuthenticated && this.props.selectSong ){
             //SET THE NEW ALBUMID ONCE MOUNTED || REMOUNTED 
             localStorage.setItem('albumID', this.props.selectSong.album.id )
-            if(this.state.updateId){
+            if(this.state.updateME){
                 this.props.onviewAlbum(this.props.selectSong.album.id) // ACTION DISPATCHED AND API QUERY
-                this.showModal = true
-                this.onMountSpinner =  <Spinner /> //SPINNER ONCE COMPONENT IS MOUNTED
+                this.onMountSpinner = <Spinner/> //SPINNER ONCE COMPONENT IS MOUNTED
         }
     }
 }
@@ -41,17 +39,16 @@ class MusicDetails extends Component {
         const albumId = parseInt(localStorage.getItem('albumID'))
         if(nextProps.albumId !== albumId){
             return{
-                updateId: true //SHOULD QUERY API
+                updateME: true //SHOULD QUERY API
             }
         }else{
             return{
-                updateId:false // SHOULDNOT QUERY API 
+                updateME:false // SHOULDNOT QUERY API 
             }
         }
     }
     componentDidUpdate(){
         this.onMountSpinner=null //UNLOAD SPINNER ON UPDATING
-        this.showModal = false
 
     }
 
@@ -79,22 +76,17 @@ class MusicDetails extends Component {
     
     render(){
         const selectSong = this.props.selectSong;
-        // console.log( this.state.spinner );
-            // console.log('spinner render')
-        // let spinner =null;
-        // if(this.props.loading){
-        //     spinner = <Spinner/>
-        // }
+        const mountSpinner = (
+            //SPINNER FOR MOUNTING ONLY
+                        <div className='mountSpinner'>
+                            {this.onMountSpinner}
+                         </div>
+            )
 
         return(
             <div className="musicDetials">
                 {this.state.authRedirect}
-                {/* {spinner} */}
-                <Modal
-                    show={this.showModal}
-                    modalClosed={this.errorConfirmedHandler}>
-                {this.onMountSpinner}
-                </Modal>
+                {mountSpinner}
                 <MusicImage selectSongData={selectSong}/>
                 {selectSong ? <MusicPlayer url={selectSong}/> : null}
                 {selectSong? <MusicDataDisplay 
@@ -116,20 +108,17 @@ class MusicDetails extends Component {
 const mapStateToProps = state => {
     return {
         selectSong: state.musicDetailsBuilder.song,
-        albumId: state.musicDetailsBuilder.song ? state.musicDetailsBuilder.song.album.id:null,
         displayType: state.musicDetailsBuilder.displayType,
         musicState: state.musicPlayer,
         isAuthenticated: state.auth.token !== null,
         loading: state.musicAlbum.loading,
-
-
+        // albumId: state.musicDetailsBuilder.song ? state.musicDetailsBuilder.song.album.id:null,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onviewAlbum: id => dispatch(actions.viewAlbum(id)),
-
     };
 
 }
