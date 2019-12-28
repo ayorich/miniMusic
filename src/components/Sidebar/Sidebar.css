@@ -1,20 +1,20 @@
-.results{
+.searchbar{
   padding: 0rem 0 3rem;
   grid-area: list; 
 }
   
-.results__list {
+.searchbar__list {
     list-style: none;
     max-height: 77rem;
     overflow-y: scroll;
   margin: 0 0 1rem; }
 
 
-.results__pages{
-    margin-top: 3rem;
+.searchbar__pages{
+    margin-bottom: 3rem;
     padding: 0 3rem; }
 
-.results__pages::after{
+.searchbar__pages::after{
       content: "";
       display: table;
       clear: both; }

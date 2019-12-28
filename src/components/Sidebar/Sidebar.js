@@ -68,12 +68,12 @@ class Sidebar extends Component {
 
     return (
       <React.Fragment>
-        <div className="results">
-          <ul className="results__list">
+        <div className="searchbar">
+          <ul className="searchbar__list">
             {list}
           </ul>
-          <div className="results__pages">
-             {this.buttonRender()}
+          <div className="searchbar__pages">
+            {!this.props.loading? this.buttonRender():null}
           </div>
         </div>
       </React.Fragment>
