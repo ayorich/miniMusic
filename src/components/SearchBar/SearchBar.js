@@ -18,12 +18,15 @@ class SearchBar extends Component {
  }
 
  inputChangeHandler = (event) => {
-     this.setState({value:event.target.value, disabled:false})
+   this.setState({ value: event.target.value, disabled: false})
+
  }
+ 
  searchHandler = () => {
-  //  this.props.onsearchLoading({spinnerLoading:true});
-  this.props.onsearchData(this.state.value)
+   if (this.state.value) {
+   this.props.onsearchData(this.state.value)}
  }
+
 render(){
     return (
       <div className="SearchBar">
@@ -34,7 +37,10 @@ render(){
         />
         <Button onClick={() => this.searchHandler() }
           className='btn'
-        disabled={this.state.disabled} 
+        disabled={this.state.disabled}
+        style={{
+          opacity: this.state.disabled? '0.7' : '1'
+        }} 
         >
           Search
         </Button>
