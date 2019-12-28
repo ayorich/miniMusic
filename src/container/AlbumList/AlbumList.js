@@ -13,7 +13,7 @@ class AlbumList extends Component{
         
 
         return(
-
+            
             <p>am album list</p>
         )
     }

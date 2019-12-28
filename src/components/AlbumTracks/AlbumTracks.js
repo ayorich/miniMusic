@@ -8,11 +8,11 @@ import './AlbumTracks.css'
 
 
 class AlbumTracks extends Component{
-
+        
     componentDidMount(){
         this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
     }
-
+    
     getAlbumDetails = () => {
             const cover_xl = this.props.album.cover_xl;
         const title = this.props.album.title;
@@ -45,7 +45,7 @@ class AlbumTracks extends Component{
         // console.log(this.props.loading)
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
-         selectedMusicHandler={this.selectedMusicHandler} />
+                                         selectedMusicHandler={this.selectedMusicHandler} />
 
          if (this.props.loading) {
             albumTracks = <Spinner />
