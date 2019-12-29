@@ -23,16 +23,18 @@ class App extends Component {
   render(){
     let routes = (
       <Switch>
-        <Route path="/auth" component={Auth} />
+        <Route path="/album" component={AlbumList} />
+        <Route path="/logout" component={Logout} />
         <Route path="/" exact component={MusicBuilder} />
         <Redirect to="/" />
       </Switch>
     );
-    if (this.props.isAuthenticated){
+  
+    if (!this.props.isAuthenticated){
       routes = (
         <Switch>
           <Route path="/album" component={AlbumList} />
-          <Route path="/logout" component={Logout} />
+          <Route path="/auth" component={Auth} />
           <Route path="/" exact component={MusicBuilder} />
           <Redirect to="/" />
         </Switch>

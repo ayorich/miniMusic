@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+
 import * as actions from '../../store/actions/index';
 
 
 class AlbumList extends Component{
         componentDidMount(){
+
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
             }
@@ -13,8 +15,10 @@ class AlbumList extends Component{
         
 
         return(
-            
+            <React.Fragment>
+                {/* {window.location.reload(false)} */}
             <p>am album list</p>
+            </React.Fragment>
         )
     }
 }

@@ -16,19 +16,38 @@
 
 }
   
-   
+   .track__ball{
+     background-color:rgb(193, 193, 193);
+     display: inline-block;
+     border-radius: 50%;
+    min-width: 2.3rem;
+     min-height: 2.3rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    position: relative;
+     vertical-align: middle;
+
+    
+  }
+  .track__num{
+     color: white;
+     text-align: center;
+     vertical-align: middle;
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+
+   }
    
   .track__name{
     font-size: 1.3rem;
     color: #F59A83;
     text-transform: uppercase;
     font-weight: 600; 
-        margin-left: 0.5rem;
-        /* align-items: flex-start; */
-        flex-basis:15rem;
-    
-
+    margin-left: 0.5rem;
   }
+
   .track__heading{
     /* margin-right: 1rem; */
     font-size: 1.3rem;

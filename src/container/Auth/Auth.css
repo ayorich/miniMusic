@@ -21,10 +21,14 @@ margin-left: 23rem;
 .signup{
   font-size: 1.3rem;
   margin: 4rem;
+  margin-top:6rem;
   margin-left: 8rem;
 }
 .passwordError{
   color: #F48982;
   font-size: 1.3rem;
   margin-left: 5rem;
+}
+.signup__link:hover{
+  color: rgba(245, 85, 73, 0.993);
 }

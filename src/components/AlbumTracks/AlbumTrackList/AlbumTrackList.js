@@ -47,8 +47,14 @@ const albumTrackList = (props) => {
             <li key={key.id} className="track__pointer" onClick={() => props.selectedMusicHandler(key)}>
                 <div className="track__link">
                     <div className="track__data">
-                        <h2 className="track__heading">Track {index + 1} : </h2>
-                        <h2 className="track__name">{limitTitle(key.title)}</h2>
+                        <h2 className="track__name">
+                            <div className="track__ball">
+                                <span className="track__num">
+                                    {index + 1}
+                                </span>
+                            </div> 
+                            {limitTitle(key.title)}
+                        </h2>
                     </div>
                 </div>
             </li>

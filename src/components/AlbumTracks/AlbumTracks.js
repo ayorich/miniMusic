@@ -10,11 +10,11 @@ import './AlbumTracks.css'
 class AlbumTracks extends Component{
         
     componentDidMount(){
-        this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
+            this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
     }
     
     getAlbumDetails = () => {
-            const cover_xl = this.props.album.cover_xl;
+        const cover_xl = this.props.album.cover_xl;
         const title = this.props.album.title;
         const albumID = this.props.album.id;
             const album = {
