@@ -1,6 +1,10 @@
 .header {
-  grid-area: head;
+  margin: 4vw  auto 0;
   background-color: #F9F5F3;
+  border-radius: 6px 6px 0 0 ;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between; 
+  max-width: 120rem;
+  height: 10rem;
+}

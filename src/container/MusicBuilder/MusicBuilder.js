@@ -6,7 +6,7 @@ import AlbumTracks from '../../components/AlbumTracks/AlbumTracks';
 import * as actions from '../../store/actions/index';
 
 
-// import './MusicBuilder.css';
+import './MusicBuilder.css';
 
 class MusicBuilder extends Component{
     componentDidMount(){
@@ -18,11 +18,11 @@ class MusicBuilder extends Component{
      
 
         return (
-          <React.Fragment>
+          <div className="musicBuilder">
             <Sidebar />
             <MusicDetails />
              <AlbumTracks />
-          </React.Fragment>
+          </div>
         );
     }
 }

@@ -33,7 +33,6 @@ class App extends Component {
     if (!this.props.isAuthenticated){
       routes = (
         <Switch>
-          <Route path="/album" component={AlbumList} />
           <Route path="/auth" component={Auth} />
           <Route path="/" exact component={MusicBuilder} />
           <Redirect to="/" />
@@ -41,10 +40,10 @@ class App extends Component {
       );
     }
       return (
-        <div className="App">
+        <React.Fragment>
           <Header />
           {routes}
-        </div>
+        </React.Fragment>
       );
   }
   

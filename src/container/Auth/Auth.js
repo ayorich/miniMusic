@@ -139,7 +139,8 @@ class Auth extends Component{
             form = <Spinner />
         }
         return(
-            <div className='auth'>
+            <div className="authBuilder">
+                <div className='auth'>
                 {/* {this.props.error} */}
 
                 {authRedirect}
@@ -155,6 +156,7 @@ class Auth extends Component{
                     </p>: null}
                 </form>
                 
+            </div>
             </div>
         )
     }

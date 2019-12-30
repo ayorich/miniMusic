@@ -32,3 +32,29 @@ margin-left: 23rem;
 .signup__link:hover{
   color: rgba(245, 85, 73, 0.993);
 }
+
+
+.authBuilder {
+  max-width: 120rem;
+  margin: 0  auto 4vw;
+  background-color: #fff;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+  display: grid;
+  grid-template-rows: minmax(80rem, auto);
+  grid-template-columns: 1.1fr 2fr 1.1fr;
+  grid-template-areas:  "list details playlist";
+  
+}
+  @media only screen and (max-width: 68.75em) {
+    .container {
+      width: 100%;
+      margin: 0;
+      border-radius: 0; } }
+
+
+
+
+
+
