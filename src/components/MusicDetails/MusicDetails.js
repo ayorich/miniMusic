@@ -76,6 +76,7 @@ class MusicDetails extends Component {
         if (this.props.isAuthenticated){
             //TO RETURN ONCE AUTH IS TRUE
             return this.props.onviewAlbum(selectSong.album.id)
+            
         }
         // SETTING STATE TO REDIRECT TO /auth IF NOT AUTH
         this.setState({ authRedirect: <Redirect to={'/auth'} /> })

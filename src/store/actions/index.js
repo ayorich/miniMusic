@@ -28,4 +28,7 @@ export{
 export {
     hideSearchbar,
     showSearchbar
-} from './UIcontrol'
+} from './UIcontrol';
+
+export { saveAlbum
+} from './saveAlbumbuilder';

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
-import Spinner from '../UI/Spinner/Spinner'
+import Spinner from '../UI/Spinner/Spinner';
+import Button from '../UI/Button/Button';
 import './AlbumTracks.css'
 
 
@@ -41,6 +42,17 @@ class AlbumTracks extends Component{
         this.props.onupdatePlayer(selectedMusic.preview);
 
     }
+    saveAlbumHandler = (album, token) => {
+        
+        const albumData ={
+            album:album,
+            userId: this.props.userId
+        }
+        console.log(albumData)
+
+        this.props.onsaveAlbum(albumData, token)
+
+    }
     render(){
         // console.log(this.props.loading)
         const album = this.props.album;
@@ -57,6 +69,13 @@ class AlbumTracks extends Component{
             <ul className="album__list">
               {this.props.isAuthenticated ? albumTracks :null}
             </ul>
+            <Button
+                    onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
+                    className='btn'
+                    // disabled={this.state.disabled}
+                    >
+                SAVE ALBUM
+            </Button>
             </div>
         )
 
@@ -69,15 +88,18 @@ const mapStateToProps = state => {
         album: state.musicAlbum.album,
         loading: state.musicAlbum.loading,
         isAuthenticated: state.auth.token !== null,
+        token:state.auth.token,
+        userId: state.auth.userId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        // onviewAlbum: id => dispatch(actions.viewAlbum(id)),
         onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
         onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
-        onalbumInit: () => dispatch(actions.albumInit()) //GETTING THE ALBUM DATA FROM LOCAL STORAGE
+        onalbumInit: () => dispatch(actions.albumInit()), //GETTING THE ALBUM DATA FROM LOCAL STORAGE
+        onsaveAlbum: (albumData, token) => dispatch(actions.saveAlbum(albumData, token))
+
 
     };
 

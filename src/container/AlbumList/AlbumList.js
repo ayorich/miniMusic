@@ -25,7 +25,7 @@ class AlbumList extends Component{
 
 const mapDispatchToProps = dispatch => {
     return {
-        onhideSearchbar: () => dispatch(actions.hideSearchbar())
+        onhideSearchbar: () => dispatch(actions.hideSearchbar()),
     };
 };
 
