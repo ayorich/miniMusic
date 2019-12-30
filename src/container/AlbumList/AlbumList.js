@@ -6,21 +6,32 @@ import './AlbumList.css';
 
 class AlbumList extends Component{
         componentDidMount(){
-
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
             }
             this.props.onfetchAlbum(this.props.token, this.props.userId);
         }
+        finalTime = (time)=>{
+
+            // const time = props.selectSongData.duration;
+            const minutes = Math.floor(time / 60);
+            const seconds = time - minutes * 60;
+            function str_pad_left(string, pad, length) {
+                return (new Array(length + 1).join(pad) + string).slice(-length);
+            }
+            const finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
+            return finalTime;
+        }
     render(){
         console.log(this.props.savedAlbums)
         
+
         let albums = this.props.savedAlbums.map(albumElement => (
             
             <div className="card" key={albumElement.id}>
                 <div className="card__side card__side--front">
                     <div className="card__picture card__picture--1">
-                        &nbsp;
+                        <img src={albumElement.album.cover_big} alt={albumElement.album.title} className="music__img"/>
                     </div>
                     <h4 className="card__heading">
                         <span className="card__heading-span">{albumElement.album.title}</span>
@@ -29,8 +40,7 @@ class AlbumList extends Component{
                         <ul>
                             <li>{albumElement.album.artist.name}</li>
                             <li>{albumElement.album.nb_tracks} tracks</li>
-                            <li>{albumElement.album.duration}</li>
-                            <li>release on {albumElement.album.release_date} </li>
+                            <li>{this.finalTime(albumElement.album.duration)} mins</li>
                         </ul>
                     </div>
 
