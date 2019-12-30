@@ -30,5 +30,7 @@ export {
     showSearchbar
 } from './UIcontrol';
 
-export { saveAlbum
+export {
+    saveAlbum, 
+    fetchAlbum
 } from './saveAlbumbuilder';
