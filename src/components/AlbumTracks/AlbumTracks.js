@@ -43,12 +43,13 @@ class AlbumTracks extends Component{
 
     }
     saveAlbumHandler = (album, token) => {
-        
+        const date =new Date();
+        const time = date.getTime()
         const albumData ={
             album:album,
-            userId: this.props.userId
+            userId: this.props.userId,
+            time: time,
         }
-        console.log(albumData)
 
         this.props.onsaveAlbum(albumData, token)
 
@@ -69,13 +70,13 @@ class AlbumTracks extends Component{
             <ul className="album__list">
               {this.props.isAuthenticated ? albumTracks :null}
             </ul>
-            <Button
+            {this.props.album? <Button
                     onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
                     className='btn'
                     // disabled={this.state.disabled}
-                    >
-                SAVE ALBUM
-            </Button>
+                >{this.props.saveloading ? 'Saving...':'SAVE ALBUM'}
+                    
+            </Button>:null} 
             </div>
         )
 
@@ -89,7 +90,9 @@ const mapStateToProps = state => {
         loading: state.musicAlbum.loading,
         isAuthenticated: state.auth.token !== null,
         token:state.auth.token,
-        userId: state.auth.userId
+        userId: state.auth.userId,
+        saveloading: state.savedAlbums.loading
+
     };
 };
 

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/index';
+import Spinner from '../../components/UI/Spinner/Spinner';
+
 import './AlbumList.css';
 
 class AlbumList extends Component{
@@ -12,8 +14,6 @@ class AlbumList extends Component{
             this.props.onfetchAlbum(this.props.token, this.props.userId);
         }
         finalTime = (time)=>{
-
-            // const time = props.selectSongData.duration;
             const minutes = Math.floor(time / 60);
             const seconds = time - minutes * 60;
             function str_pad_left(string, pad, length) {
@@ -23,11 +23,12 @@ class AlbumList extends Component{
             return finalTime;
         }
     render(){
-        console.log(this.props.savedAlbums)
-        
+        const albumSort = this.props.savedAlbums;
+        albumSort.sort((a, b) => {
+            return a.time - b.time;
+        }).reverse()
 
-        let albums = this.props.savedAlbums.map(albumElement => (
-            
+        let albums = albumSort.map(albumElement => (
             <div className="card" key={albumElement.id}>
                 <div className="card__side card__side--front">
                     <div className="card__picture ">
@@ -56,6 +57,11 @@ class AlbumList extends Component{
                 </div>
             </div>
         ));
+
+        if (this.props.loading) {
+            albums = <Spinner/>
+        }
+
         return(
             <div className="albumBuilder">
                 {this.props.savedAlbums? albums : null}
@@ -69,7 +75,8 @@ const mapStateToProps = state => {
     return {
         token: state.auth.token,
         userId: state.auth.userId,
-        savedAlbums: state.savedAlbums.albums
+        savedAlbums: state.savedAlbums.albums,
+        loading: state.savedAlbums.loading
 
     }
 }

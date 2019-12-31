@@ -27,7 +27,7 @@ export{
 
 export {
     hideSearchbar,
-    showSearchbar
+    showSearchbar,
 } from './UIcontrol';
 
 export {

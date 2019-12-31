@@ -14,3 +14,10 @@ export const hideSearchbar = () => {
         type: actionTypes.SEARCH_BAR_UI_HIDE
     };
 };
+
+
+// export const btnSave = () => {
+//     return {
+//         type: actionTypes.BTN_UI_DONE
+//     };
+// };

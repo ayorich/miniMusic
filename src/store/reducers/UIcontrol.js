@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    searchBar: true
+    searchBar: true,
+    // btnDisplay: true
 };
 
 
@@ -17,6 +18,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 searchBar: false
             }
+        // case actionTypes.BTN_UI_DONE:
+        //     return{
+        //         ...state,
+        //         btnDisplay: false
+        //     }
         default:
             return state;
         }

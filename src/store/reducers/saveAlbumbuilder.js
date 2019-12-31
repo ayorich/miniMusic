@@ -24,7 +24,23 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false
-            };
+            }
+        case actionTypes.SAVE_ALBUM_START:
+            return{
+                ...state,
+                loading: true
+            }
+        case actionTypes.SAVE_ALBUM_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                
+            }
+        case actionTypes.SAVE_ALBUM_FAILED:
+            return {
+                ...state,
+                loading: false
+            }
         default:
             return state;
     }
