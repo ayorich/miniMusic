@@ -30,7 +30,7 @@ class AlbumList extends Component{
             
             <div className="card" key={albumElement.id}>
                 <div className="card__side card__side--front">
-                    <div className="card__picture card__picture--1">
+                    <div className="card__picture ">
                         <img src={albumElement.album.cover_big} alt={albumElement.album.title} className="music__img"/>
                     </div>
                     <h4 className="card__heading">
@@ -45,13 +45,13 @@ class AlbumList extends Component{
                     </div>
 
                 </div>
-                <div className="card__side card__side--back card__side--back-1">
+                <div className="card__side card__side--back">
                     <div className="card__cta">
-                        <div className="card__price-box">
-                            <p className="card__price-only">Only</p>
-                            <p className="card__price-value">$497</p>
+                        <div className="card__text-box">
+                            <p className="card__text-1">Listen to</p>
+                            <p className="card__text-2">full album</p>
                         </div>
-                        <a href="#popup" className="btn btn--white">Book now!</a>
+                        <a href={albumElement.album.link} target='_blank' rel="noopener noreferrer" className="card__btn card__btn--white">Deezer</a>
                     </div>
                 </div>
             </div>

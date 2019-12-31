@@ -1,144 +1,203 @@
 .albumBuilder {
-  max-width: 120rem;
-  margin: 0  auto 4vw;
-  background-color: #fff;
-  border-radius: 0 0 6px 6px;
-  overflow: hidden;
-  box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
-  display: grid;
-  grid-template-rows: minmax(80rem, auto);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  padding: 1.6rem;
-  box-sizing: border-box;
+    max-width: 120rem;
+    margin: 0  auto 4vw;
+    background-color: #fff;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+    box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+    display: grid;
+    grid-template-rows: minmax(30rem, auto);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1.6rem;
+    box-sizing: border-box;
 }
 
 
 .card {
-    /* // FUNCTIONALITY */
+/* // FUNCTIONALITY */
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
     height: 30rem;
     width: 100%; 
 }
-    
-.card__side {
-        height: 30rem;
-        transition: all .8s ease;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 3px;
-        overflow: hidden;
-        box-shadow: 0 0.5rem 1rem 0.5rem rgba(101, 90, 86, 0.2);
 
-    }
+.card__side {
+    height: 30rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem 0.5rem rgba(101, 90, 86, 0.2);
+
+}
 
 .card__side--front {
-            background-color: #FBDB89;
-        }
+    background-color: #FBDB89;
+    }
 
 .card__side--back {
-            transform: rotateY(180deg);
-            background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
-
-
-    }
+    transform: rotateY(180deg);
+    background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+}
 
 .card:hover .card__side--front {
-        transform: rotateY(-180deg);
-    }
+    transform: rotateY(-180deg);
+}
 
 .card:hover .card__side--back {
-        transform: rotateY(0);
-    }
+    transform: rotateY(0);
+}
 
 
-    /* // FRONT SIDE STYLING */
-    .card__picture {
-        background-size: cover;
-        height: 15rem;
-        background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-    }
-
-
-      
-
+/* // FRONT SIDE STYLING */
+.card__picture {
+    background-size: cover;
+    height: 15rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
 
 .card__heading {
-        font-size: 2.1rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        text-align: right;
-        color: #fff;
-        position: absolute;
-        top: 7rem;
-        right: 2rem;
-        width: 75%;
-    
-    }
+    font-size: 2.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: #fff;
+    position: absolute;
+    top: 7rem;
+    right: 2rem;
+    width: 75%;
+
+}
 
 .card__heading-span {
-        padding: 1rem 1.5rem;
-        -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-    }
-    
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
 
-   
-    
 
-    .card__details {
-        padding: 1rem;
-    }
-     .card__details  ul {
-            list-style: none;
-            width: 80%;
-            margin: 0 auto;
-     }
 
-    .card__details ul li {
-            text-align: center;
-            font-size: 1.5rem;
-            padding: 1rem;
-        }
 
-    .card__details ul li:not(:last-child) {
-        border-bottom: 1px solid #eee;
-    }
-      
 
-    /* // FRONT SIDE STYLING */
-    .card__cta {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        text-align: center;
-    }
+.card__details {
+    padding: 1rem;
+}
+.card__details  ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+}
 
-    .card__price-box {
-        text-align: center;
-        color: #fff;
-        margin-bottom: 8rem;
-    }
+.card__details ul li {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
 
-    .card__price-only {
-        font-size: 1.4rem;
-        text-transform: uppercase;
-    }
+.card__details ul li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
 
-    .card__price-value {
-        font-size: 6rem;
-        font-weight: 100;
-    }
 
+/* // FRONT SIDE STYLING */
+.card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    height: 25rem;
+
+}
+
+.card__text-box {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8rem;
+}
+
+.card__text-1 {
+    font-size: 2rem;
+}
+
+.card__text-2 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    text-transform: uppercase;
+
+}
+
+
+.card__btn,
+.card__btn:link,
+.card__btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+
+    /* //Change for the <button> element */
+    border: none;
+    cursor: pointer;
+}
+
+.card__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(#000,.2);
+}
+
+.card__btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+
+.card__btn:active,
+.card__btn:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(#000,.2);
+}
+
+.card__btn--white {
+    background-color: #fff;
+    color: #777;
+}
+.card__btn--white::after {
+    background-color: #fff;
+}
+
+
+.card__btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.card__btn--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
