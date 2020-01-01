@@ -1,4 +1,6 @@
 import React from "react";
+import Button from '../../UI/Button/Button';
+
 
 import './AlbumTrackList.css';
 
@@ -61,7 +63,19 @@ const albumTrackList = (props) => {
         );
     });
 
-    return displayData;
+    return (
+        <React.Fragment>
+            <ul className="album__list">
+            {displayData}
+            </ul>
+            <Button
+                onClick={() => props.saveAlbumHandler(props.album, props.token)}
+                className='btn'
+            // disabled={this.state.disabled}
+            >{props.saveloading ? 'Saving...' : 'SAVE ALBUM'}
+            </Button>
+        </React.Fragment>
+    )
 
 }
 

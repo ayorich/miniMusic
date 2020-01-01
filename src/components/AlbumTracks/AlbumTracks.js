@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
 import Spinner from '../UI/Spinner/Spinner';
-import Button from '../UI/Button/Button';
+// import Button from '../UI/Button/Button';
 import './AlbumTracks.css'
 
 
@@ -58,7 +58,10 @@ class AlbumTracks extends Component{
         // console.log(this.props.loading)
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
-                                         selectedMusicHandler={this.selectedMusicHandler} />
+                                         selectedMusicHandler={this.selectedMusicHandler}
+            saveAlbumHandler={this.saveAlbumHandler}
+            saveloading={this.props.saveloading}
+            token={this.props.token} />
 
          if (this.props.loading) {
             albumTracks = <Spinner />
@@ -67,16 +70,17 @@ class AlbumTracks extends Component{
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
-            <ul className="album__list">
+                {this.props.album ? albumTracks : null}
+            {/* <ul className="album__list">
               {this.props.isAuthenticated ? albumTracks :null}
-            </ul>
-            {this.props.album? <Button
+            </ul> */}
+            {/* {this.props.album? <Button
                     onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
                     className='btn'
                     // disabled={this.state.disabled}
                 >{this.props.saveloading ? 'Saving...':'SAVE ALBUM'}
                     
-            </Button>:null} 
+            </Button>:null}  */}
             </div>
         )
 

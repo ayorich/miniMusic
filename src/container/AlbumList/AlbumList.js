@@ -59,7 +59,10 @@ class AlbumList extends Component{
         ));
 
         if (this.props.loading) {
-            albums = <Spinner/>
+
+            albums = (<div className="albumSpinnercover">
+                        <Spinner/>
+                     </div>)
         }
 
         return(
