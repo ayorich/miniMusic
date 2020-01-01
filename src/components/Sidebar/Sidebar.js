@@ -72,7 +72,6 @@ class Sidebar extends Component {
       <React.Fragment>
         <div className="searchbar">
             {list}
-          
           <div className="searchbar__pages">
             {!this.props.loading? this.buttonRender():null}
           </div>

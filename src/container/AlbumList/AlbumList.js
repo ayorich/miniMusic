@@ -64,8 +64,8 @@ class AlbumList extends Component{
 
         if (this.props.loading) {
             albumGrid = <div className="albumSpinnercover">
-                        <Spinner/>
-                     </div>
+                            <Spinner/>
+                        </div>
         }
 
         return(

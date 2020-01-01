@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
 import Spinner from '../UI/Spinner/Spinner';
-// import Button from '../UI/Button/Button';
+import Button from '../UI/Button/Button';
 import './AlbumTracks.css'
 
 
@@ -59,7 +59,7 @@ class AlbumTracks extends Component{
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
                                          selectedMusicHandler={this.selectedMusicHandler}
-                                        saveAlbumHandler={this.saveAlbumHandler}
+                                        // saveAlbumHandler={this.saveAlbumHandler}
                                         saveloading={this.props.saveloading}
                                         token={this.props.token}
                                  />
@@ -67,11 +67,28 @@ class AlbumTracks extends Component{
          if (this.props.loading) {
             albumTracks = <Spinner />
         }
-
+        let saveButton = <Button
+                                onClick={() => this.props.saveAlbumHandler(this.props.album, this.props.token)}
+                                className='btn'
+                            // disabled={this.state.disabled}
+                            >SAVE ALBUM
+                        </Button>
+        if (this.props.saveloading ){
+            saveButton = <Button className='btn'>SAVING ...</Button>
+        }else{
+            saveButton = <Button className='btn'>DONE</Button>
+        }
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
                 { albumTracks }
+                {saveButton}
+                {/* <Button
+                    onClick={() => this.props.saveAlbumHandler(this.props.album, this.props.token)}
+                    className='btn'
+                // disabled={this.state.disabled}
+                >{this.props.saveloading ? 'Saving...' : 'SAVE ALBUM'}
+                </Button> */}
             </div>
         )
 

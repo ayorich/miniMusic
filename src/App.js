@@ -43,6 +43,10 @@ class App extends Component {
         <React.Fragment>
           <Header />
           {routes}
+          <div className="copyright">
+            &copy; by Kayode Ayodele. Powered by &nbsp;
+            <a href="http://www.deezer.com" target="_blank" rel="noopener noreferrer" className="link">Deezer.com</a>.
+          </div>
         </React.Fragment>
       );
   }

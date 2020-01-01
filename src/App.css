@@ -1,0 +1,14 @@
+.copyright {
+    color: white;
+    font-size: 1.7rem;
+    bottom: 3rem;
+    left: 3rem;
+    margin: 0 auto 4vw;
+    text-align: center;
+
+}
+
+.link:link,
+.link:visited {
+  color: #968B87;
+ }
