@@ -23,7 +23,8 @@ class AlbumList extends Component{
             return finalTime;
         }
     render(){
-        const albumSort = this.props.savedAlbums;
+        const albumSort = this.props.fetchAlbums;
+        // console.log(albumSort)
         albumSort.sort((a, b) => {
             return a.time - b.time;
         }).reverse()
@@ -67,7 +68,7 @@ class AlbumList extends Component{
 
         return(
             <div className="albumBuilder">
-                {this.props.savedAlbums? albums : null}
+                {this.props.fetchAlbums? albums : null}
                  
             </div>
 
@@ -78,8 +79,8 @@ const mapStateToProps = state => {
     return {
         token: state.auth.token,
         userId: state.auth.userId,
-        savedAlbums: state.savedAlbums.albums,
-        loading: state.savedAlbums.loading
+        fetchAlbums: state.fetchAlbums.albums,
+        loading: state.fetchAlbums.loading
 
     }
 }

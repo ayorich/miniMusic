@@ -8,18 +8,19 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SAVE_ALBUM_START:
-            return{
+        case actionTypes.FETCH_ALBUMS_START:
+            return {
                 ...state,
                 loading: true
             }
-        case actionTypes.SAVE_ALBUM_SUCCESS:
+        case actionTypes.FETCH_ALBUMS_SUCCESS:
             return {
                 ...state,
-                loading: false,
-                
+                albums: action.payload,
+                loading: false
             }
-        case actionTypes.SAVE_ALBUM_FAILED:
+
+        case actionTypes.FETCH_ALBUMS_FAILED:
             return {
                 ...state,
                 loading: false

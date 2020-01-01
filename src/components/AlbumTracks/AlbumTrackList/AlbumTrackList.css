@@ -1,3 +1,12 @@
+.album__list {
+    list-style: none;
+    padding: 0 0 0 0rem;
+    max-height: 47rem;
+    overflow: scroll;
+ }
+
+
+
 .track__pointer{cursor: pointer;}
 .track__link:link, .track__link:visited {
     padding: 1.5rem 3rem;

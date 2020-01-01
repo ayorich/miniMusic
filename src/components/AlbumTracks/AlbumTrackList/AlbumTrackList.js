@@ -6,11 +6,11 @@ import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
     // console.log(props.album.id)
-    let list = null;
-    if (props.album){
-        list = props.album.tracks.data;
+    let list = props.album.tracks.data;
+    // if (props.album){
+    //     list = props.album.tracks.data;
 
-    }
+    // }
 //   const list = null;
 
     // console.log(list)

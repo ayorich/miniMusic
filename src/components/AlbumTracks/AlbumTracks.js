@@ -59,9 +59,10 @@ class AlbumTracks extends Component{
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
                                          selectedMusicHandler={this.selectedMusicHandler}
-            saveAlbumHandler={this.saveAlbumHandler}
-            saveloading={this.props.saveloading}
-            token={this.props.token} />
+                                        saveAlbumHandler={this.saveAlbumHandler}
+                                        saveloading={this.props.saveloading}
+                                        token={this.props.token}
+                                 />
 
          if (this.props.loading) {
             albumTracks = <Spinner />
@@ -71,16 +72,6 @@ class AlbumTracks extends Component{
             <div className="album">
             <h2 className="heading-2">Track List</h2>
                 {this.props.album ? albumTracks : null}
-            {/* <ul className="album__list">
-              {this.props.isAuthenticated ? albumTracks :null}
-            </ul> */}
-            {/* {this.props.album? <Button
-                    onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
-                    className='btn'
-                    // disabled={this.state.disabled}
-                >{this.props.saveloading ? 'Saving...':'SAVE ALBUM'}
-                    
-            </Button>:null}  */}
             </div>
         )
 

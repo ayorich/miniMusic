@@ -32,5 +32,8 @@ export {
 
 export {
     saveAlbum, 
-    fetchAlbum
 } from './saveAlbumbuilder';
+
+export {
+    fetchAlbum
+} from './fetchAlbumbuilder';

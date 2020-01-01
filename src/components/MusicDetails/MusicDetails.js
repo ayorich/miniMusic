@@ -113,9 +113,9 @@ class MusicDetails extends Component {
                                 disabled={this.props.displayType}
                 >{this.state.textContent}</Button> : null}
 
-                <div class="copyright">
+                <div className="copyright">
                     &copy; by Kayode Ayodele. Powered by
-                <a href="http://www.deezer.com" target="_blank" rel="noopener noreferrer" class="link">Deezer.com</a>.
+                <a href="http://www.deezer.com" target="_blank" rel="noopener noreferrer" className="link">Deezer.com</a>.
             </div>
             </div>
         )
