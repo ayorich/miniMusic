@@ -58,10 +58,12 @@ class Sidebar extends Component {
 
   render() {
     // console.log(this.props.listData)
-    let list = <SidebarList
-      listData={this.props.listData}
-      selectedMusicHandler={this.selectedMusicHandler}
-    />
+    let list = <ul className="searchbar__list">
+                  <SidebarList
+                    listData={this.props.listData}
+                    selectedMusicHandler={this.selectedMusicHandler}
+                  />
+                </ul>
     if (this.props.loading) {
       list = <Spinner />
     }
@@ -69,9 +71,8 @@ class Sidebar extends Component {
     return (
       <React.Fragment>
         <div className="searchbar">
-          <ul className="searchbar__list">
             {list}
-          </ul>
+          
           <div className="searchbar__pages">
             {!this.props.loading? this.buttonRender():null}
           </div>

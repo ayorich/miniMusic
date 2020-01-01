@@ -6,11 +6,11 @@ import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
     // console.log(props.album.id)
-    let list = props.album.tracks.data;
-    // if (props.album){
-    //     list = props.album.tracks.data;
+    let list = null;
+    if (props.album){
+        list = props.album.tracks.data;
 
-    // }
+    }
 //   const list = null;
 
     // console.log(list)
@@ -65,15 +65,15 @@ const albumTrackList = (props) => {
 
     return (
         <React.Fragment>
-            <ul className="album__list">
+            {props.album ?<ul className="album__list">
             {displayData}
-            </ul>
-            <Button
+            </ul> : null}
+            {props.album? <Button
                 onClick={() => props.saveAlbumHandler(props.album, props.token)}
                 className='btn'
             // disabled={this.state.disabled}
             >{props.saveloading ? 'Saving...' : 'SAVE ALBUM'}
-            </Button>
+            </Button>:null}
         </React.Fragment>
     )
 

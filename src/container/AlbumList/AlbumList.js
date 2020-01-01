@@ -11,7 +11,7 @@ class AlbumList extends Component{
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
             }
-            this.props.onfetchAlbum(this.props.token, this.props.userId);
+            this.props.onfetchAlbum(this.props.token, this.props.userId)
         }
         finalTime = (time)=>{
             const minutes = Math.floor(time / 60);
@@ -29,7 +29,7 @@ class AlbumList extends Component{
             return a.time - b.time;
         }).reverse()
 
-        let albums = albumSort.map(albumElement => (
+        const albums = albumSort.map(albumElement => (
             <div className="card" key={albumElement.id}>
                 <div className="card__side card__side--front">
                     <div className="card__picture ">
@@ -58,17 +58,19 @@ class AlbumList extends Component{
                 </div>
             </div>
         ));
+        let albumGrid = <div className="albumGrid">
+                            {this.props.fetchAlbums ? albums : null}
+                        </div>
 
         if (this.props.loading) {
-
-            albums = (<div className="albumSpinnercover">
+            albumGrid = <div className="albumSpinnercover">
                         <Spinner/>
-                     </div>)
+                     </div>
         }
 
         return(
             <div className="albumBuilder">
-                {this.props.fetchAlbums? albums : null}
+                {this.props.fetchAlbums ? albumGrid : null}
                  
             </div>
 

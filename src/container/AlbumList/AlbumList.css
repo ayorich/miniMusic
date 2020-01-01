@@ -5,14 +5,25 @@
     border-radius: 0 0 6px 6px;
     overflow: hidden;
     box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
-    display: grid;
-    grid-template-rows: minmax(30rem, auto);
+    box-sizing: border-box;
+}
+.albumGrid{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;
     padding: 1.6rem;
-    box-sizing: border-box;
-}
+    display: grid;
+    grid-template-rows: minmax(80rem, auto);
 
+
+}
+.albumSpinnercover{
+    margin:auto;
+    grid-template-rows: minmax(80rem, auto);
+    display: grid;
+    padding-top: 12rem;
+
+
+}
 
 .card {
 /* // FUNCTIONALITY */
@@ -200,8 +211,4 @@
 .card__btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
-}
-.albumSpinnercover{
-    margin:auto;
-
 }

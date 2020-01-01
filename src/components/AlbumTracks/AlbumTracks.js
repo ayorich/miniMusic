@@ -71,7 +71,7 @@ class AlbumTracks extends Component{
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
-                {this.props.album ? albumTracks : null}
+                { albumTracks }
             </div>
         )
 

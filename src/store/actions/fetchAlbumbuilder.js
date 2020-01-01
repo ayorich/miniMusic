@@ -19,7 +19,7 @@ export const fetchAlbum = (token, userId) => {
                     });
                 }
                 // console.log(fetchedAlbums)
-                dispatch(fetchAlbumsSuccess(fetchedAlbums));
+                dispatch(fetchAlbumsSuccess(fetchedAlbums))
             })
             .catch(err => {
                 dispatch(fetchAlbumsFailed(err));
