@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes';
-// import * as actions from './index';
 import { firebaseInstance as axios } from '../../axios-base';
 
 export const saveAlbum = (albumData, token) =>{

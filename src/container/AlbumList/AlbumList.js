@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import { firebaseInstance as axios } from '../../axios-base';
+
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
@@ -11,8 +15,11 @@ class AlbumList extends Component{
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
             }
-            this.props.onfetchAlbum(this.props.token, this.props.userId)
+            this.props.onfetchAlbum(this.props.token, this.props.userId);
+            console.log(this.props.history)
+            // this.props.history.go('/')
         }
+        
         finalTime = (time)=>{
             const minutes = Math.floor(time / 60);
             const seconds = time - minutes * 60;
@@ -64,9 +71,11 @@ class AlbumList extends Component{
 
         if (this.props.loading) {
             albumGrid = <div className="albumSpinnercover">
+                        {/* <span onClick={() => this.props.onfetchAlbum(this.props.token, this.props.userId)}>clickme</span> */}
                             <Spinner/>
                         </div>
         }
+            // console.log(this.props.history)
 
         return(
             <div className="albumBuilder">
@@ -82,8 +91,7 @@ const mapStateToProps = state => {
         token: state.auth.token,
         userId: state.auth.userId,
         fetchAlbums: state.fetchAlbums.albums,
-        loading: state.fetchAlbums.loading
-
+        loading: state.fetchAlbums.loading,
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -93,4 +101,9 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(AlbumList, axios));
+
+
+
+// export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
+//WITHERRORHANDLER REFUSE TO WORK ON MOUNTING FOR ALBUMLIST ONLY , SO TO BE CHECKED LATER WHY

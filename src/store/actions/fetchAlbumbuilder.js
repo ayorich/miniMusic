@@ -8,9 +8,17 @@ export const fetchAlbum = (token, userId) => {
         dispatch(fetchAlbumsStart());
         // const queryParams=`?auth="${token}"&orderBy="userId"&equalTo="${userId}"`;
         const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+        axios('/albums.json' + queryParams,
+            {
+                method: "GET",
+                headers: {
+                    'Access-Control-Allow-Credentials': true,
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'application/json',
 
-        axios.get('/albums.json' + queryParams)
-            .then(res => {
+                }
+            }
+        ).then(res => {
                 const fetchedAlbums = [];
                 for (let key in res.data) {
                     fetchedAlbums.push({
@@ -20,9 +28,9 @@ export const fetchAlbum = (token, userId) => {
                 }
                 // console.log(fetchedAlbums)
                 dispatch(fetchAlbumsSuccess(fetchedAlbums))
-            })
-            .catch(err => {
-                dispatch(fetchAlbumsFailed(err));
+            }).catch(error => {
+                // console.log(error.error)
+                dispatch(fetchAlbumsFailed(error));
             });
     };
 };
@@ -44,9 +52,10 @@ export const fetchAlbumsSuccess = (fetchedAlbums) => {
     }
 }
 
-export const fetchAlbumsFailed = () => {
+export const fetchAlbumsFailed = (error) => {
     return {
-        type: actionTypes.FETCH_ALBUMS_FAILED
+        type: actionTypes.FETCH_ALBUMS_FAILED,
+        payload: error
 
     }
 }

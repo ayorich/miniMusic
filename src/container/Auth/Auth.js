@@ -136,24 +136,30 @@ class Auth extends Component{
         }
 
         if (this.props.loading) {
-            form = <Spinner />
+            form = <div className="formSpinner">
+                <Spinner />
+                 </div>
         }
         return(
             <div className="authBuilder">
                 <div className='auth'>
                 {/* {this.props.error} */}
-
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     {this.state.passError? <label className="passwordError">***Please enter the same password again.</label>: null}
-                    <div className='formbtn '>
-                        <Button className='btn '>{this.state.isSignup ? 'LOG IN' : 'SIGN UP'}</Button>
+                     <div className='formbtn '>
+                            {!this.props.loading ?  <Button className='btn '>
+                                {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
+                            </Button> : null}
                     </div>
+                {!this.props.loading ?<div>
                    {this.state.isSignup? <p className='signup'>
                          Don't have an account? 
                         <span className='signup__link' onClick={this.switchAuthModeHandler}> SIGN UP </span>
                     </p>: null}
+                    </div>:null}
+
                 </form>
                 
             </div>
