@@ -16,8 +16,14 @@ export const hideSearchbar = () => {
 };
 
 
-// export const btnSave = () => {
-//     return {
-//         type: actionTypes.BTN_UI_DONE
-//     };
-// };
+export const btnSaving = () => {
+    return {
+        type: actionTypes.BTN_UI_SAVING
+    };
+};
+
+export const btnToSave = () => {
+    return {
+        type: actionTypes.BTN_UI_TO_SAVE
+    };
+};

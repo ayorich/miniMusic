@@ -51,7 +51,8 @@ class AlbumTracks extends Component{
             time: time,
         }
 
-        this.props.onsaveAlbum(albumData, token)
+        this.props.onsavingBtn(); // CHANGING THE SAVE BUTTON TO SAVING 
+        this.props.onsaveAlbum(albumData, token); //SAVING ALBUM TO FIRESTORE
 
     }
     render(){
@@ -59,36 +60,30 @@ class AlbumTracks extends Component{
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
                                          selectedMusicHandler={this.selectedMusicHandler}
-                                        // saveAlbumHandler={this.saveAlbumHandler}
-                                        saveloading={this.props.saveloading}
-                                        token={this.props.token}
                                  />
 
          if (this.props.loading) {
             albumTracks = <Spinner />
         }
-        let saveButton = <Button
-                                onClick={() => this.props.saveAlbumHandler(this.props.album, this.props.token)}
+        const saveButton = <Button
+                                onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
                                 className='btn'
-                            // disabled={this.state.disabled}
                             >SAVE ALBUM
                         </Button>
-        if (this.props.saveloading ){
-            saveButton = <Button className='btn'>SAVING ...</Button>
-        }else{
-            saveButton = <Button className='btn'>DONE</Button>
+        
+         const doneButton = <Button className='btn'>{this.props.saveloading ? 'Saving...' : 'DONE'}</Button>
+        const buttonRender=this.props.btnIU ?saveButton: doneButton;
+        let buttonDisplay =null;
+        if(this.props.album){
+            if (!this.props.loading) {
+                buttonDisplay = buttonRender
+            }
         }
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
                 { albumTracks }
-                {saveButton}
-                {/* <Button
-                    onClick={() => this.props.saveAlbumHandler(this.props.album, this.props.token)}
-                    className='btn'
-                // disabled={this.state.disabled}
-                >{this.props.saveloading ? 'Saving...' : 'SAVE ALBUM'}
-                </Button> */}
+                {buttonDisplay}
             </div>
         )
 
@@ -103,7 +98,8 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         token:state.auth.token,
         userId: state.auth.userId,
-        saveloading: state.savedAlbums.loading
+        saveloading: state.savedAlbums.loading,
+        btnIU: state.UIcontrol.btnDisplay
 
     };
 };
@@ -113,8 +109,8 @@ const mapDispatchToProps = dispatch => {
         onselectMusic: selectedMusic => dispatch(actions.selectMusic(selectedMusic)),
         onupdatePlayer: url => dispatch(actions.updatePlayer(url)),
         onalbumInit: () => dispatch(actions.albumInit()), //GETTING THE ALBUM DATA FROM LOCAL STORAGE
-        onsaveAlbum: (albumData, token) => dispatch(actions.saveAlbum(albumData, token))
-
+        onsaveAlbum: (albumData, token) => dispatch(actions.saveAlbum(albumData, token)),
+        onsavingBtn: () => dispatch(actions.btnSaving())
 
     };
 

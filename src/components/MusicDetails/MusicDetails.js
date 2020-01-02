@@ -21,38 +21,19 @@ class MusicDetails extends Component {
     state={
         textContent: 'View Album',
         authRedirect:null,
-        updateME:null,
-        
     }
   
 
-    // static getDerivedStateFromProps(nextProps, prevState){
-    //     //COMPARING ALBUMID BEFORE AND WHEN MOUNTING AGAIN TO REDUCE REPEATED API QUERY 
-    //     const albumId = parseInt(localStorage.getItem('albumID'))
-    //     console.log('getDerivedstate')
-
-    //     if(nextProps.albumId !== albumId){
-    //         console.log('true')
-    //         return{
-    //             updateME: true //SHOULD QUERY API
-
-    //         }
-    //     } else {
-    //         console.log('false')
-    //         return{
-    //             updateME:false // SHOULDNOT QUERY API 
-    //         }
-    //     }
-    // }
-
     componentDidMount() {
         if (this.props.isAuthenticated && this.props.selectSong) {
-            //SET THE NEW ALBUMID ONCE MOUNTED || REMOUNTED 
-            const albumId = parseInt(localStorage.getItem('albumID'))
+            //GET THE PREVIOUS ALBUMID ONCE MOUNTED || REMOUNTED 
 
+            const albumId = parseInt(localStorage.getItem('albumID'))
+            //SET THE NEW ALBUMID ONCE MOUNTED || REMOUNTED 
             localStorage.setItem('albumID', this.props.selectSong.album.id)
             if (albumId !== this.props.selectSong.album.id) {
                 this.props.onviewAlbum(this.props.selectSong.album.id) // ACTION DISPATCHED AND API QUERY
+                this.props.onbtnToSave() // to change button state on mount
                 // this.showModal = true //SET SPINNER TO SHOW ON MOUNT
                 this.onMountSpinner = <Spinner/> //SPINNER ONCE COMPONENT IS MOUNTED
             }
@@ -85,7 +66,8 @@ class MusicDetails extends Component {
             if (albumId !== selectSong.album.id){
             // console.log('onbuttonclicked')
                 //TO RETURN ONCE AUTH IS TRUE
-                return this.props.onviewAlbum(selectSong.album.id)
+                 this.props.onviewAlbum(selectSong.album.id)
+                return this.props.onbtnToSave()
             }
             
         }
@@ -146,6 +128,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onviewAlbum: id => dispatch(actions.viewAlbum(id)),
+        onbtnToSave: () => dispatch(actions.btnToSave())
 
     };
 

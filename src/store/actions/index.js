@@ -28,6 +28,8 @@ export{
 export {
     hideSearchbar,
     showSearchbar,
+    btnToSave,
+    btnSaving
 } from './UIcontrol';
 
 export {

@@ -6,13 +6,14 @@
     overflow: hidden;
     box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
     box-sizing: border-box;
+    min-height: 80rem;
 }
 .albumGrid{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1rem;
     padding: 1.6rem;
     display: grid;
-    grid-template-rows: minmax(80rem, auto);
+    grid-template-rows: minmax(30rem, auto);
 
 
 }

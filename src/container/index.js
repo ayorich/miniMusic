@@ -15,6 +15,24 @@
     //     // this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
 
     // }
+  // static getDerivedStateFromProps(nextProps, prevState){
+    //     //COMPARING ALBUMID BEFORE AND WHEN MOUNTING AGAIN TO REDUCE REPEATED API QUERY 
+    //     const albumId = parseInt(localStorage.getItem('albumID'))
+    //     console.log('getDerivedstate')
+
+    //     if(nextProps.albumId !== albumId){
+    //         console.log('true')
+    //         return{
+    //             updateME: true //SHOULD QUERY API
+
+    //         }
+    //     } else {
+    //         console.log('false')
+    //         return{
+    //             updateME:false // SHOULDNOT QUERY API 
+    //         }
+    //     }
+    // }
 
 
 // import React from 'react';

@@ -1,5 +1,4 @@
 import React from "react";
-// import Button from '../../UI/Button/Button';
 
 
 import './AlbumTrackList.css';
@@ -68,7 +67,6 @@ const albumTrackList = (props) => {
             {props.album ?<ul className="album__list">
                              {displayData}
                             </ul> : null}
-             
         </React.Fragment>
     )
 

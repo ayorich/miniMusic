@@ -25,7 +25,8 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
 export const SEARCH_BAR_UI_SHOW = 'SEARCH_BAR_UI_SHOW';
 export const SEARCH_BAR_UI_HIDE = 'SEARCH_BAR_UI_HIDE';
-// export const BTN_UI_DONE = 'BTN_UI_DONE';
+export const BTN_UI_SAVING = 'BTN_UI_SAVING';
+export const BTN_UI_TO_SAVE ='BTN_UI_TO_SAVE';
 
 export const SAVE_ALBUM_START = 'SAVE_ALBUM_START';
 export const SAVE_ALBUM_SUCCESS = 'SAVE_ALBUM_SUCCESS';
