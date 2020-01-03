@@ -1,24 +1,28 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import { firebaseInstance as axios } from '../../axios-base';
-
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import Modal from '../../components/UI/Modal/Modal';
+
+
 
 import './AlbumList.css';
 
 class AlbumList extends Component{
-        componentDidMount(){
+    state = {
+        error: null
+    }
+         componentDidMount(){
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
             }
-            this.props.onfetchAlbum(this.props.token, this.props.userId);
-            console.log(this.props.history)
+             this.props.onfetchAlbum(this.props.token, this.props.userId);
+            // console.log(this.props.history)
+            this.setState({ error:this.props.error})
             // this.props.history.go('/')
         }
+
         
         finalTime = (time)=>{
             const minutes = Math.floor(time / 60);
@@ -29,6 +33,10 @@ class AlbumList extends Component{
             const finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
             return finalTime;
         }
+    errorConfirmedHandler = () => {
+        this.setState({ error: null });
+    }
+
     render(){
         const albumSort = this.props.fetchAlbums;
         // console.log(albumSort)
@@ -71,16 +79,18 @@ class AlbumList extends Component{
 
         if (this.props.loading) {
             albumGrid = <div className="albumSpinnercover">
-                        {/* <span onClick={() => this.props.onfetchAlbum(this.props.token, this.props.userId)}>clickme</span> */}
                             <Spinner/>
                         </div>
         }
-            // console.log(this.props.history)
 
         return(
             <div className="albumBuilder">
+                 <Modal
+                    show={this.state.error}
+                    modalClosed={this.errorConfirmedHandler}>
+                    {this.state.error ? this.state.error.message : null}
+                </Modal>
                 {this.props.fetchAlbums ? albumGrid : null}
-                 
             </div>
 
         )
@@ -92,6 +102,7 @@ const mapStateToProps = state => {
         userId: state.auth.userId,
         fetchAlbums: state.fetchAlbums.albums,
         loading: state.fetchAlbums.loading,
+        error: state.fetchAlbums.error,
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -101,9 +112,17 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(AlbumList, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
 
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
-//WITHERRORHANDLER REFUSE TO WORK ON MOUNTING FOR ALBUMLIST ONLY , SO TO BE CHECKED LATER WHY
+
+
+
+
+
+
+
+
+//WITHERRORINTERCEPTOR REFUSE TO WORK ON MOUNTING FOR ALBUMLIST ONLY , SO TO BE CHECKED LATER WHY
+//AND ALREADY SOLVED BY ADDING ERRORHANDLER WITHIN COMPONENT

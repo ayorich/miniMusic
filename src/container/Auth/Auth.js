@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import withErrorInterceptor from '../../hoc/withErrorInterceptor/withErrorInterceptor';
 import {authInstance as axios} from '../../axios-base';
 
 import FormInput from '../../components/UI/FormInput/FormInput';
@@ -182,4 +182,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Auth, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorInterceptor(Auth, axios));

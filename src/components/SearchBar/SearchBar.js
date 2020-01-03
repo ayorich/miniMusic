@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import withErrorInterceptor from '../../hoc/withErrorInterceptor/withErrorInterceptor';
 import {searchInstance as axios} from '../../axios-base';
 
 import Button from '../UI/Button/Button';
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => {
       onsearchData: userInput => dispatch(actions.searchData(userInput)),
     };
 }
-export default connect(null, mapDispatchToProps)(withErrorHandler(SearchBar, axios));
+export default connect(null, mapDispatchToProps)(withErrorInterceptor(SearchBar, axios));

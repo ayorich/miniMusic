@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
   musicAlbum: musicAlbumReducer,
   auth: authReducer,
   UIcontrol: UIReducer,
-  savedAlbums: saveAlbumReducer,
+  saveAlbum: saveAlbumReducer,
   fetchAlbums: fetchAlbumReducer,
 });
 

@@ -30,7 +30,7 @@ export const saveAlbumSuccess =()=>{
 export const saveAlbumFailed = (error) => {
     return {
         type: actionTypes.SAVE_ALBUM_FAILED,
-        error: error
+        payload: error
     };
 }
 

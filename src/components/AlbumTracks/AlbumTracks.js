@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// import ErrorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
+
 import Spinner from '../UI/Spinner/Spinner';
 import Button from '../UI/Button/Button';
+
 import './AlbumTracks.css'
 
 
 class AlbumTracks extends Component{
-        
     componentDidMount(){
             this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
     }
@@ -70,15 +72,32 @@ class AlbumTracks extends Component{
                                 className='btn'
                             >SAVE ALBUM
                         </Button>
-        
-         const doneButton = <Button className='btn'>{this.props.saveloading ? 'Saving...' : 'DONE'}</Button>
-        const buttonRender=this.props.btnIU ?saveButton: doneButton;
+        let renderButton=  null
+         if (this.props.saveloading ){
+             renderButton = < Button className='btn' >saving....</Button >
+         }else if(this.props.error){
+             renderButton = <Button
+                                onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
+                                className='btn'
+                                style={{
+                                    backgroundImage: 'linear-gradient(to right bottom,rgb(236, 147, 147),rgb(240, 138, 131))'
+                                }}
+                                >Error!!! RETRY
+                            </Button>
+         }else{
+             renderButton = <Button className='btn' >SAVED</Button >
+         }
+
+        //  const doneButton = <Button className='btn'>{ this.props.saveloading ? 'Saving...' : 'DONE' }</Button>
+        const buttonRender=this.props.btnIU ?saveButton: renderButton;
+    
         let buttonDisplay =null;
         if(this.props.album){
             if (!this.props.loading) {
                 buttonDisplay = buttonRender
             }
         }
+        console.log(this.props.error)
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
@@ -98,8 +117,9 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
         token:state.auth.token,
         userId: state.auth.userId,
-        saveloading: state.savedAlbums.loading,
-        btnIU: state.UIcontrol.btnDisplay
+        saveloading: state.saveAlbum.loading,
+        btnIU: state.UIcontrol.btnDisplay,
+        error: state.saveAlbum.error
 
     };
 };

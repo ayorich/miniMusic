@@ -4,6 +4,7 @@ import * as actionTypes from '../actions/actionTypes'
 const initialState = {
     albums: [],
     loading: false,
+    error:null
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SAVE_ALBUM_FAILED:
             return {
                 ...state,
-                loading: false
+                loading: false,
+                error:action.payload
             }
         default:
             return state;
