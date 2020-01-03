@@ -6,9 +6,7 @@ export const saveAlbum = (albumData, token) =>{
            dispatch(saveAlbumStart());
             axios.post('/albums.json?auth=' + token, albumData)
                 .then(response => {
-                    console.log(response)
                     dispatch(saveAlbumSuccess());
-                    // dispatch(actions.btnSave())
                 }).catch(error => {
                     dispatch(saveAlbumFailed(error));
                 } )

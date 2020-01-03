@@ -64,7 +64,6 @@ class MusicDetails extends Component {
 
             localStorage.setItem('albumID', this.props.selectSong.album.id)
             if (albumId !== selectSong.album.id){
-            // console.log('onbuttonclicked')
                 //TO RETURN ONCE AUTH IS TRUE
                  this.props.onviewAlbum(selectSong.album.id)
                 return this.props.onbtnToSave()

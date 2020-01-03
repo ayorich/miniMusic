@@ -57,7 +57,6 @@ class Sidebar extends Component {
   };
 
   render() {
-    // console.log(this.props.listData)
     let list = <ul className="searchbar__list">
                   <SidebarList
                     listData={this.props.listData}

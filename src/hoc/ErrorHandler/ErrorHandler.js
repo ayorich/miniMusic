@@ -26,8 +26,6 @@ class ErrorHandler  extends Component {
             this.setState({ error: null });
         }
         render() {
-            // console.log(this.state.error)
-
             return (
                     <Modal
                         show={this.state.error}

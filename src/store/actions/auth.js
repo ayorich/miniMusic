@@ -27,22 +27,14 @@ export const auth = (email, password, isSignup) =>{
                     dispatch(authSuccess(response.data.idToken, response.data.localId));
                     dispatch(checkAuthTimeout(response.data.expiresIn));
 
-                    console.log(response.data)
                 }
                 )
                 .catch(error =>{
-                    // console.log(error)
                     dispatch(authFail(error))
                 })
         }
 }
-// {
-//     "error": {
-//         "errors": [],
-//         "code": 400,
-//         "message": "CREDENTIAL_TOO_OLD_LOGIN_AGAIN"
-//     }
-// }
+
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START
@@ -105,3 +97,18 @@ export const authCheckState = () => {
         }
     };
 };
+
+
+
+
+
+
+
+
+// {
+//     "error": {
+//         "errors": [],
+//         "code": 400,
+//         "message": "CREDENTIAL_TOO_OLD_LOGIN_AGAIN"
+//     }
+// }

@@ -5,10 +5,8 @@ import SquareTab from '../../UI/SquareTab/SquareTab'
 
 
 const musicDataDisplay = (props) => {
-    // console.log(props);
     let detailsDisplay = null;
     
-        // console.log(props.selectSongData);
     const time = props.selectSongData.duration;
     const minutes = Math.floor(time / 60);
     const seconds = time - minutes * 60;
@@ -31,7 +29,6 @@ const musicDataDisplay = (props) => {
               <div className="recipe__details">
                 <SquareTab detail={props.selectSongData.artist.name}>ARTIST(S)</SquareTab>
                 <SquareTab detail={props.selectSongData.album.title}>ALBUM TITLE</SquareTab>
-                {/* <SquareTab >{props.selectSongData}</SquareTab> */}
                  <SquareTab detail={finalTime}>DURATION</SquareTab>
                  <SquareTab detail={props.selectSongData.release_date}>RELEASED DATE</SquareTab>
                  <SquareTab detail={props.selectSongData.label}>LABEL</SquareTab>

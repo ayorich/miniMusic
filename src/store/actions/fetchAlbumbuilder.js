@@ -3,7 +3,6 @@ import { firebaseInstance as axios } from '../../axios-base';
 
 
 export const fetchAlbum = (token, userId) => {
-    // console.log(token, userId)
     return dispatch => {
         dispatch(fetchAlbumsStart());
         // const queryParams=`?auth="${token}"&orderBy="userId"&equalTo="${userId}"`;
@@ -26,10 +25,8 @@ export const fetchAlbum = (token, userId) => {
                         id: key
                     });
                 }
-                // console.log(fetchedAlbums)
                 dispatch(fetchAlbumsSuccess(fetchedAlbums))
             }).catch(error => {
-                // console.log(error.error)
                 dispatch(fetchAlbumsFailed(error));
             });
     };

@@ -3,7 +3,6 @@ import { searchInstance as axios } from '../../axios-base';
 
 
 export const viewAlbum = albumID => {
-    // console.log(albumID)
     return dispatch => {
         dispatch(setAlbumDataStart());
         axios(
@@ -18,15 +17,10 @@ export const viewAlbum = albumID => {
             }
         ).then(response => {
             localStorage.setItem('album', JSON.stringify(response.data));
-                dispatch(albumInit());
-            // dispatch(albumInit());
-            // dispatch(albumDetails());
-            // dispatch(setAlbumDataSuccess());
-            // console.log(response);
+                dispatch(albumInit());;
         })
             .catch(err => {
                 dispatch(setAlbumDataFailed(err));
-                // console.log(err);
             });
     };
 }
@@ -53,7 +47,6 @@ export const setAlbumDataFailed = () => {
 export const albumDetails = () => {
     //ACTION TO DISPLAY DATA TO CENTER LAYOUT 
     const albumDetails = JSON.parse(localStorage.getItem('album'));
-    // console.log(albumDetails);
     let newKey=null;
     if(albumDetails){
         const cover_xl = albumDetails.cover_xl;
@@ -69,7 +62,6 @@ export const albumDetails = () => {
             album: album,
         }
     }
-    // console.log(newKey);
 
     return {
         type: actionTypes.VIEW_ALBUM_DETAILS,

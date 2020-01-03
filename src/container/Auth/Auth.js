@@ -104,8 +104,6 @@ class Auth extends Component{
  
 
     render(){
-        // console.log(this.props.isAuth + ' !== null  = ' + this.props.isAuthenticated)
-        
         let authRedirect = null;
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={this.props.authRedirectPath} />
@@ -117,7 +115,6 @@ class Auth extends Component{
                 config: this.state.controls[key]
             });
         }
-        // console.log(formElementsArray)
       
         let form = formElementsArray.map(formElement => (
             <FormInput

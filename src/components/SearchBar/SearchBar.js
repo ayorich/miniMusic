@@ -28,7 +28,6 @@ class SearchBar extends Component {
  }
 
 render(){
-  // console.log('serch')
     return (
       <div className="SearchBar">
         <Input

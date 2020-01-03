@@ -3,16 +3,13 @@ import React from "react";
 import './SidebarList.css';
 
 const sidebarList = (props)=> {
-  // console.log(props.listData)
 
   const list = props.listData;
-  // console.log(list)
 
   const dataArray = [];
   for (let key in list) {
     dataArray.push(list[key]);
   }
-  // console.log(dataArray);
   
 
 
@@ -36,8 +33,6 @@ const sidebarList = (props)=> {
 
 
   const displayData = dataArray.map(key => {
-    // console.log(key.title)
-    // console.log(key)
     return (
       <li key={key.id} className="list__pointer" onClick={() => props.selectedMusicHandler(key)}>
         <div className="results__link">

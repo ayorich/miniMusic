@@ -17,9 +17,7 @@ class AlbumList extends Component{
                 this.props.onhideSearchbar()
             }
              this.props.onfetchAlbum(this.props.token, this.props.userId);
-            // console.log(this.props.history)
             this.setState({ error:this.props.error})
-            // this.props.history.go('/')
         }
 
         
@@ -33,17 +31,8 @@ class AlbumList extends Component{
             return finalTime;
         }
     
-    // showTracksHandler = (albumElement) => {
-    //     this.setState({
-    //         show: < AlbumTrackView album={albumElement.album}
-    //         // selectedMusicHandler = { this.selectedMusicHandler }
-    //         /> });
-    //     console.log(albumElement)
-        
-    // }
     render(){
         const albumSort = this.props.fetchAlbums;
-        // console.log(albumSort)
         albumSort.sort((a, b) => {
             return a.time - b.time;
         }).reverse()
@@ -86,7 +75,6 @@ class AlbumList extends Component{
                             <Spinner/>
                         </div>
         }
-        console.log(this.props.fetchAlbums)
         return(
             <div className="albumBuilder">
                 <ErrorHandler error={this.props.error}/>
@@ -125,4 +113,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
 
 
 //WITHERRORINTERCEPTOR REFUSE TO WORK ON MOUNTING FOR ALBUMLIST ONLY , SO TO BE CHECKED LATER WHY
-//AND ALREADY SOLVED BY ADDING ERRORHANDLER WITHIN COMPONENT
+//AND ALREADY SOLVED BY ADDING ERRORHANDLER WITHIN DIDUPDATEDCOMPONENT ---ALREADY SOLVED 

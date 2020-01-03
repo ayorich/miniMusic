@@ -4,23 +4,16 @@ import React from "react";
 import './AlbumTrackList.css';
 
 const albumTrackList = (props) => {
-    // console.log(props.album.id)
     let list = null;
     if (props.album){
         list = props.album.tracks.data;
 
     }
-//   const list = null;
-
-    // console.log(list)
 
     const dataArray = [];
     for (let key in list) {
         dataArray.push(list[key]);
     }
-    // console.log(dataArray);
-
-
 
     const limitTitle = (title, limit = 150) => {
         const titleSplit = title.split('(')[0];
@@ -42,8 +35,6 @@ const albumTrackList = (props) => {
 
 
     const displayData = dataArray.map((key , index) => {
-        // console.log(key.title)
-        // console.log(key)
         return (
             <li key={key.id} className="track__pointer" onClick={() => props.selectedMusicHandler(key)}>
                 <div className="track__link">

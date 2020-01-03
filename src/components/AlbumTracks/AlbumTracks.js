@@ -32,14 +32,12 @@ class AlbumTracks extends Component{
         const album = this.getAlbumDetails();
        
         const key = selectedMusic;
-        // console.log(album)
         const newKey = {
                 ...key,
                 album:album
 
         }
 
-        // console.log(newKey)
         this.props.onselectMusic(newKey);
         this.props.onupdatePlayer(selectedMusic.preview);
 
@@ -58,7 +56,6 @@ class AlbumTracks extends Component{
 
     }
     render(){
-        // console.log(this.props.loading)
         const album = this.props.album;
         let albumTracks= <AlbumTrackList album={album}
                                          selectedMusicHandler={this.selectedMusicHandler}
@@ -97,7 +94,6 @@ class AlbumTracks extends Component{
                 buttonDisplay = buttonRender
             }
         }
-        // console.log(this.props.error)
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>

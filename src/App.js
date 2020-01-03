@@ -45,8 +45,6 @@ class App extends Component {
       </Switch>
     );
     if (this.props.isAuthenticated){
-        // console.log('auth true')
-
       routes = (
         <Switch>
           <Route path="/album" component={AlbumList} />
@@ -56,7 +54,6 @@ class App extends Component {
         </Switch>
       );
     }
-    // console.log('render')
       return (
         <React.Fragment>
           <Header />

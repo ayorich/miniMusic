@@ -16,12 +16,10 @@ export const searchData = userInput => {
           }
         ).then(response => {
           dispatch(setDatasuccess(response.data));
-            // console.log(response.data);
 
           })
           .catch(err => {
             dispatch(setDataFailed(err));
-            // console.log(err);
           });
     };
    
@@ -44,14 +42,11 @@ const axiosRequest = (proxyurl, url) => axios(`${proxyurl}${url}`,
 )
 
 export const getnextList = url => {
-  // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
       dispatch(setDatastart());
     axiosRequest(proxyurl, url).then(response => {
       dispatch(setDatasuccess(response.data));
-      // console.log(response.data);
-      // console.log(response);
     })
       .catch(err => {
         dispatch(setDataFailed(err));
@@ -60,14 +55,11 @@ export const getnextList = url => {
 }
 
 export const getprevList = url => {
-  // console.log(url)
   const proxyurl = "https://cors-anywhere.herokuapp.com/";
   return dispatch => {
       dispatch(setDatastart());
     axiosRequest(proxyurl, url).then(response => {
       dispatch(setDatasuccess(response.data));
-      // console.log(response.data);
-      // console.log(response);
     })
       .catch(err => {
         dispatch(setDataFailed(err));
