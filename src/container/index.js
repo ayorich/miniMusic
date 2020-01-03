@@ -11,7 +11,7 @@
     //     console.log(prevState)
     //     console.log(snapshot)
     //     console.log(this.props.albumId)
-    //     // if (this.props.albumId !== this.prevProps)
+    //     // if (this.props.albumId !== prevProps)
     //     // this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
 
     // }

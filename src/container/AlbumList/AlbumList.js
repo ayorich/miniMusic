@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+import ErrorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import Modal from '../../components/UI/Modal/Modal';
+
 
 
 
 import './AlbumList.css';
 
 class AlbumList extends Component{
-    state = {
-        error: null
-    }
+    
          componentDidMount(){
             if (this.props.history.location.pathname !== '/') {
                 this.props.onhideSearchbar()
@@ -33,10 +32,15 @@ class AlbumList extends Component{
             const finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
             return finalTime;
         }
-    errorConfirmedHandler = () => {
-        this.setState({ error: null });
-    }
-
+    
+    // showTracksHandler = (albumElement) => {
+    //     this.setState({
+    //         show: < AlbumTrackView album={albumElement.album}
+    //         // selectedMusicHandler = { this.selectedMusicHandler }
+    //         /> });
+    //     console.log(albumElement)
+        
+    // }
     render(){
         const albumSort = this.props.fetchAlbums;
         // console.log(albumSort)
@@ -82,14 +86,10 @@ class AlbumList extends Component{
                             <Spinner/>
                         </div>
         }
-
+        console.log(this.props.fetchAlbums)
         return(
             <div className="albumBuilder">
-                 <Modal
-                    show={this.state.error}
-                    modalClosed={this.errorConfirmedHandler}>
-                    {this.state.error ? this.state.error.message : null}
-                </Modal>
+                <ErrorHandler error={this.props.error}/>
                 {this.props.fetchAlbums ? albumGrid : null}
             </div>
 

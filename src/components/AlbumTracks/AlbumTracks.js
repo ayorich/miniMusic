@@ -97,7 +97,7 @@ class AlbumTracks extends Component{
                 buttonDisplay = buttonRender
             }
         }
-        console.log(this.props.error)
+        // console.log(this.props.error)
         return(
             <div className="album">
             <h2 className="heading-2">Track List</h2>
