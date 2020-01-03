@@ -64,6 +64,7 @@ class AlbumTracks extends Component{
          if (this.props.loading) {
             albumTracks = <Spinner />
         }
+        // BUTTON RENDERING
         const saveButton = <Button
                                 onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
                                 className='btn'
@@ -85,7 +86,6 @@ class AlbumTracks extends Component{
              renderButton = <Button className='btn' >SAVED</Button >
          }
 
-        //  const doneButton = <Button className='btn'>{ this.props.saveloading ? 'Saving...' : 'DONE' }</Button>
         const buttonRender=this.props.btnIU ?saveButton: renderButton;
     
         let buttonDisplay =null;

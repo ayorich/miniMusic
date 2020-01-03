@@ -1,21 +1,12 @@
 .albumBuilder {
-    max-width: 120rem;
-    margin: 0  auto 1vw;
-    background-color: #fff;
-    border-radius: 0 0 6px 6px;
-    overflow: hidden;
-    box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
     box-sizing: border-box;
-    min-height: 80rem;
 }
 .albumGrid{
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     grid-gap: 1rem;
     padding: 1.6rem;
     display: grid;
     grid-template-rows: minmax(30rem, auto);
-
-
 }
 .albumSpinnercover{
     margin:auto;
