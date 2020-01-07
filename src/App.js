@@ -33,17 +33,11 @@ class App extends Component {
   
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.auth.token !== null,
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignin: () => dispatch(actions.authCheckState())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
 

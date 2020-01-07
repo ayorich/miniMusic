@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import ErrorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
-
-
-
+import { timeFormatter } from '../../shared/utility';
 
 import './AlbumList.css';
+
 
 class AlbumList extends Component{
     
@@ -20,17 +19,6 @@ class AlbumList extends Component{
             this.setState({ error:this.props.error})
         }
 
-        
-        finalTime = (time)=>{
-            const minutes = Math.floor(time / 60);
-            const seconds = time - minutes * 60;
-            function str_pad_left(string, pad, length) {
-                return (new Array(length + 1).join(pad) + string).slice(-length);
-            }
-            const finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
-            return finalTime;
-        }
-    
     render(){
         const albumSort = this.props.fetchAlbums;
         albumSort.sort((a, b) => {
@@ -50,7 +38,7 @@ class AlbumList extends Component{
                         <ul>
                             <li>{albumElement.album.artist.name}</li>
                             <li>{albumElement.album.nb_tracks} tracks</li>
-                            <li>{this.finalTime(albumElement.album.duration)} mins</li>
+                            <li>{timeFormatter(albumElement.album.duration)} mins</li>
                         </ul>
                     </div>
 
