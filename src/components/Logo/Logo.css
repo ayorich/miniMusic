@@ -1,6 +1,17 @@
 .header__logo {
-    margin-left: 4rem;
-    height: 4.5rem;
+    /* margin-left: 4rem; */
     display: block; 
     cursor: pointer;
-}
+    text-decoration: none;
+    background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+    clip-path: polygon(0 0, 100% 31%, 100% 69%, 0% 100%);
+    padding: 3rem 1rem;
+    border-radius: 0.9rem;
+  }
+
+ .header__logo a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.7rem;
+    } 
