@@ -15,8 +15,6 @@ class MusicBuilder extends Component{
       }
     }
     render() {
-     
-
         return (
           <div className="musicBuilder">
             <Sidebar />
@@ -26,11 +24,7 @@ class MusicBuilder extends Component{
         );
     }
 }
-// const mapStateToProps = state => {
-//   return{
-//     isAuthenticated: state.auth.token !== null,
-//   }
-// }
+
 const mapDispatchToProps = dispatch => {
   return {
     onshowSearchbar: () => dispatch(actions.showSearchbar())
