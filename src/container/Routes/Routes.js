@@ -1,9 +1,6 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+import React from "react";
 import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
 import MusicBuilder from '../MusicBuilder/MusicBuilder';
-
-
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -19,36 +16,32 @@ const asyncAuth = asyncComponent(() => {
     return import('../Auth/Auth');
 });
 
-class RouterRender extends Component{
-
-    render(){
-        let routes = (
+const routerRender= () => {
+    const token = localStorage.getItem('token');
+    let routes = (
+        <Switch>
+            <Route path="/auth" component={asyncAuth} />
+            <Route path="/" exact component={MusicBuilder} />
+            <Redirect to="/" />
+        </Switch>
+    );
+    if (token) {
+        routes = (
             <Switch>
-                <Route path="/auth" component={asyncAuth} />
+                <Route path="/album" component={asyncAlbumList} />
+                <Route path="/logout" component={asyncLogout} />
                 <Route path="/" exact component={MusicBuilder} />
                 <Redirect to="/" />
             </Switch>
         );
-        if (this.props.isAuthenticated) {
-            routes = (
-                <Switch>
-                    <Route path="/album" component={asyncAlbumList} />
-                    <Route path="/logout" component={asyncLogout} />
-                    <Route path="/" exact component={MusicBuilder} />
-                    <Redirect to="/" />
-                </Switch>
-            );
-        }
-        return routes
     }
+    return routes
+
 }
 
-const mapStateToProps = state => {
-    return {
-        isAuthenticated: state.auth.token !== null,
-    };
-};
+
+
 
     
 
-export default connect(mapStateToProps)(RouterRender);
+export default routerRender;

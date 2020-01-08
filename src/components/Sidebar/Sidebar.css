@@ -18,3 +18,12 @@
       content: "";
       display: table;
       clear: both; }
+
+       @media (max-width: 768px) {
+         ul.searchbar__list  {
+            padding: 0;
+          }
+          .searchbar__pages{
+    margin-bottom: 2rem;
+    padding: 0 0.3rem; }
+   }

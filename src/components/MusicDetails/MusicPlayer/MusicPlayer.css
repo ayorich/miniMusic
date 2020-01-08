@@ -13,3 +13,18 @@
         padding: 1rem 3rem;
         outline: none;
 }
+@media (max-width: 768px) {
+    .audio__player{
+    max-width: 35rem;
+}
+
+.audio__player:focus{
+     max-width: 30rem;
+}
+.audio__container{
+        padding: 0.5rem 1.5rem;
+}
+.audio__container:focus{
+        padding: 0.5rem 1.5rem;
+}
+}

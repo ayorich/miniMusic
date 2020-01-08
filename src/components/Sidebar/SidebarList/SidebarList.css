@@ -26,3 +26,13 @@
     color: #968B87;
     text-transform: uppercase;
     font-weight: 600; }
+
+    @media (max-width: 768px) {
+         p.results__author  {
+            margin: 0;
+            margin-top: 0.5rem;
+          }
+          h4.results__name{
+            margin: 1rem 0;
+          }
+   }

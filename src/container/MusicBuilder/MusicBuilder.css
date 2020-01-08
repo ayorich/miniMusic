@@ -5,7 +5,12 @@
   grid-template-areas:  "list details playlist";
   
 }
-  
+  @media (max-width: 768px) {
+      .musicBuilder {
+  grid-template-columns:1.1fr 1.5fr 1.1fr;
+
+      }
+  }
 
 
 

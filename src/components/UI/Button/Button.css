@@ -5,7 +5,9 @@
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
-  transition: all .2s; }
+  transition: all .2s;
+  padding: 1.3rem 3rem;
+  font-size: 1.4rem; }
 
   .btn:hover {
     transform: scale(1.05); }
@@ -13,9 +15,7 @@
 .btn:focus{
     outline: none; }
 
-.btn {
-  padding: 1.3rem 3rem;
-  font-size: 1.4rem; }
+
 
   .btn--prev{
     float: left;
@@ -28,3 +28,11 @@
   margin-left: 23rem;
 
 }
+
+ @media (max-width: 768px) {
+   .btn{
+  border-radius: 5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.7rem; }
+  
+ }

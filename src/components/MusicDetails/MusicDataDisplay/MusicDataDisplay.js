@@ -10,7 +10,7 @@ const musicDataDisplay = (props) => {
     let detailsDisplay = null;
    
     const listDisplay = (
-            <div className="recipe__details">
+            <div className="musictab__details">
                 <SquareTab detail={props.selectSongData.artist.name}>ARTIST(S)</SquareTab>
                 <SquareTab detail={props.selectSongData.title}>TITLE</SquareTab>
             <SquareTab detail={timeFormatter(props.selectSongData.duration)}>DURATION</SquareTab>
@@ -20,7 +20,7 @@ const musicDataDisplay = (props) => {
 
         
          const albumDisplay =(
-              <div className="recipe__details">
+              <div className="musictab__details">
                 <SquareTab detail={props.selectSongData.artist.name}>ARTIST(S)</SquareTab>
                 <SquareTab detail={props.selectSongData.album.title}>ALBUM TITLE</SquareTab>
                  <SquareTab detail={timeFormatter(props.selectSongData.duration)}>DURATION</SquareTab>
