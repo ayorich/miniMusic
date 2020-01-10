@@ -75,7 +75,7 @@
     font-weight: 300;
     text-transform: uppercase;
     text-align: right;
-    color: #fff;
+    color: inherit;
     position: absolute;
     top: 7rem;
     right: 2rem;
@@ -203,4 +203,37 @@
 .card__btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
+}
+.music__link{
+        display: inline-block;
+        text-decoration: none;
+        color:#fff;
+        cursor: default
+        }
+@media only screen and (max-width: 768px),
+only screen and (hover: none) {
+       .card__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+        }
+
+        .card__side--back {
+                display: none;
+            }
+        
+        .card:hover .card__side--front {
+            transform: rotateY(0);
+        }
+
+        .card__details {
+            padding: 1rem 3rem;
+        }
+        .music__link{
+        cursor: pointer
+        }
+      
+        
+
+
 }

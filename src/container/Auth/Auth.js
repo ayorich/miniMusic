@@ -140,7 +140,6 @@ class Auth extends Component{
         return(
             <div className="authBuilder">
                 <div className='auth'>
-                {/* {this.props.error} */}
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>
                     {form}

@@ -7,7 +7,8 @@
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   min-height: 80rem;
 
-}@media only screen and (max-width: 68.75em) {
+}
+@media only screen and (max-width: 68.75em) {
 
     .appBuilder {
       width: 100%;

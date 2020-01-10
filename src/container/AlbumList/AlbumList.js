@@ -20,6 +20,7 @@ class AlbumList extends Component{
         }
 
     render(){
+        console.log(window.innerWidth,window.innerHeight)
         const albumSort = this.props.fetchAlbums;
         albumSort.sort((a, b) => {
             return a.time - b.time;
@@ -28,6 +29,7 @@ class AlbumList extends Component{
         const albums = albumSort.map(albumElement => (
             <div className="card" key={albumElement.id}>
                 <div className="card__side card__side--front">
+                    <a href={albumElement.album.link} target='_blank' rel="noopener noreferrer" className="music__link">
                     <div className="card__picture ">
                         <img src={albumElement.album.cover_big} alt={albumElement.album.title} className="music__img"/>
                     </div>
@@ -41,6 +43,7 @@ class AlbumList extends Component{
                             <li>{timeFormatter(albumElement.album.duration)} mins</li>
                         </ul>
                     </div>
+                        </a>
 
                 </div>
                 <div className="card__side card__side--back">
