@@ -146,7 +146,7 @@ class Auth extends Component{
                     {form}
                     {this.state.passError? <label className="passwordError">***Please enter the same password again.</label>: null}
                      <div className='formbtn '>
-                            {!this.props.loading ?  <Button className='btn '>
+                            {!this.props.loading ? <Button type="submit" className='btn '>
                                 {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
                             </Button> : null}
                     </div>
