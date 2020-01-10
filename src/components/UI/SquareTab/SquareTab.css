@@ -24,3 +24,22 @@
     display: inline-block;
 
   }
+
+   @media (max-width: 768px) {
+     .music__detail {
+    margin-bottom: 1.3rem;
+    width: 45%;
+    font-size: 1.5rem;
+    line-height: 0.75;
+ }
+ .music__detail span {
+      padding: 0.2rem 0.5rem;
+    }
+
+  .text__detail{
+    font-size: 1.3rem;
+    line-height: 0.75;
+    width: 54%;
+
+  }
+   }

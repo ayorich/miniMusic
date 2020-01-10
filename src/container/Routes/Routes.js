@@ -16,8 +16,13 @@ const asyncAuth = asyncComponent(() => {
     return import('../Auth/Auth');
 });
 
-const routerRender= () => {
-    const token = localStorage.getItem('token');
+const routerRender = (props) => {
+    const expirationDate = new Date(localStorage.getItem('expirationDate'));
+    let token = null;
+    if (expirationDate >= new Date()){
+         token = localStorage.getItem('token')
+    }
+
     let routes = (
         <Switch>
             <Route path="/auth" component={asyncAuth} />
@@ -25,7 +30,7 @@ const routerRender= () => {
             <Redirect to="/" />
         </Switch>
     );
-    if (token) {
+    if (token !== null || props.isAuthenticated ) {
         routes = (
             <Switch>
                 <Route path="/album" component={asyncAlbumList} />

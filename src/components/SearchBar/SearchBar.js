@@ -22,29 +22,30 @@ class SearchBar extends Component {
 
  }
  
- searchHandler = () => {
+ searchHandler = (e) => {
+   e.preventDefault();
    if (this.state.value) {
    this.props.onsearchData(this.state.value)}
  }
 
 render(){
     return (
-      <div className="SearchBar">
+      <form onSubmit={this.searchHandler} className="SearchBar">
         <Input
           value={this.state.value}
           placeholder="Search over 1,000,000 musics..."
           onChange={(event) => this.inputChangeHandler(event)}
         />
-        <Button onClick={() => this.searchHandler() }
+        <Button type="submit"
           className='btn'
-        disabled={this.state.disabled}
-        style={{
-          opacity: this.state.disabled? '0.7' : '1'
-        }} 
+          disabled={this.state.disabled}
+          style={{
+            opacity: this.state.disabled? '0.7' : '1'
+          }} 
         >
           Search
         </Button>
-      </div>
+      </form>
     );
 }
     

@@ -5,8 +5,6 @@
     overflow: scroll;
  }
 
-
-
 .track__pointer{cursor: pointer;}
 .track__link:link, .track__link:visited {
     padding: 1.5rem 3rem;
@@ -21,8 +19,6 @@
 .track__data{
     margin: 0 1rem;
     display: flex;
-/* flex-wrap: nowrap; */
-
 }
   
    .track__ball{
@@ -58,12 +54,13 @@
   }
 
   .track__heading{
-    /* margin-right: 1rem; */
     font-size: 1.3rem;
     color: #968B87;
     text-transform: uppercase;
     font-weight: 600; 
-        /* flex-basis:11rem; */
   
   }
 
+@media (max-width: 768px) {
+
+}

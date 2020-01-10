@@ -16,3 +16,12 @@
   margin-bottom: 2.5rem;
   text-align: center;
   transform: skewY(-3deg); }
+
+
+  @media (max-width: 768px) {
+      .heading-2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.7rem;
+}
+
+  }

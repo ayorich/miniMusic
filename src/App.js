@@ -21,7 +21,7 @@ class App extends Component {
         <React.Fragment>
           <Header />
           <div className='appBuilder'>
-            <RouterRender/>
+            <RouterRender isAuthenticated={this.props.isAuthenticated}/>
           </div>
           <div className="copyright">
             &copy; by Kayode Ayodele. Powered by &nbsp;
@@ -32,12 +32,16 @@ class App extends Component {
   }
   
 }
-
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null,
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignin: () => dispatch(actions.authCheckState())
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

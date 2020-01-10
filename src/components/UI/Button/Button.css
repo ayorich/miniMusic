@@ -33,6 +33,11 @@
    .btn{
   border-radius: 5rem;
   padding: 1rem 1.5rem;
-  font-size: 1.7rem; }
+  font-size: 0.8rem; }
+   .btn-signin{
+  width: 10rem;
+  margin-left: 13rem;
+
+}
   
  }
