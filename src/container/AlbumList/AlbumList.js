@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import ErrorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import { timeFormatter } from '../../shared/utility';
+import { timeFormatter, titleTrimmer } from '../../shared/utility';
+
 
 import './AlbumList.css';
 
@@ -38,7 +39,7 @@ class AlbumList extends Component{
                     </h4>
                     <div className="card__details">
                         <ul>
-                            <li>{albumElement.album.artist.name}</li>
+                            <li>{titleTrimmer(albumElement.album.artist.name,15)}</li>
                             <li>{albumElement.album.nb_tracks} tracks</li>
                             <li>{timeFormatter(albumElement.album.duration)} mins</li>
                         </ul>

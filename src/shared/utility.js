@@ -4,6 +4,7 @@ export const checkValidity = (value, rules) => {
         return true;
     }
 
+
     if (rules.required) {
         isValid = value.trim() !== '' && isValid;
     }
@@ -38,4 +39,23 @@ export const timeFormatter = (time)=> {
     }
     return  str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
     
+}
+
+
+export const titleTrimmer = (title, limit=100) => {
+    const titleSplit = title.split('(')[0];
+
+    const newTitle = [];
+    if (titleSplit.length > limit) {
+        titleSplit.split(' ').reduce((sum, cur) => {
+            if (sum + cur.length <= limit) {
+                newTitle.push(cur);
+            }
+            return sum + cur.length;
+        }, 0);
+
+        // return the result
+        return `${newTitle.join(' ')} ...`;
+    }
+    return titleSplit;
 }

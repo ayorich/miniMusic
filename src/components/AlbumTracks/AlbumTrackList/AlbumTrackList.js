@@ -1,4 +1,5 @@
 import React from "react";
+import {titleTrimmer} from "../../../shared/utility";
 
 
 import './AlbumTrackList.css';
@@ -15,24 +16,6 @@ const albumTrackList = (props) => {
         dataArray.push(list[key]);
     }
 
-    const limitTitle = (title, limit = 150) => {
-        const titleSplit = title.split('(')[0];
-
-        const newTitle = [];
-        if (titleSplit.length > limit) {
-            titleSplit.split(' ').reduce((sum, cur) => {
-                if (sum + cur.length <= limit) {
-                    newTitle.push(cur);
-                }
-                return sum + cur.length;
-            }, 0);
-
-            // return the result
-            return `${newTitle.join(' ')} ...`;
-        }
-        return titleSplit;
-    }
-
 
     const displayData = dataArray.map((key , index) => {
         return (
@@ -45,7 +28,7 @@ const albumTrackList = (props) => {
                                     {index + 1}
                                 </span>
                             </div> 
-                            {limitTitle(key.title)}
+                            {titleTrimmer(key.title, 20)}
                         </h2>
                     </div>
                 </div>
