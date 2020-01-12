@@ -10,8 +10,10 @@ import Spinner from "../UI/Spinner/Spinner";
 import './Sidebar.css'
 
 class Sidebar extends Component {
+    state={
+      currentId:null,
 
-  
+    }
   buttonRender = () => {
     if (this.props.next && !this.props.prev) {
       return (
@@ -50,17 +52,32 @@ class Sidebar extends Component {
       );
     }
   };
-
-  selectedMusicHandler = selectedMusic => {
+ 
+  selectedMusicHighlighted = (currentId) => {
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+      el.classList.remove('results__link--active');
+    });
+    document.querySelector(`.results__link[id*="${currentId}"]`).classList.add('results__link--active');
+    // this.setState({ currentId: currentId})
+  }
+  selectedMusicHandler = ( selectedMusic) => {
     this.props.onselectMusic(selectedMusic);
     this.props.onupdatePlayer(selectedMusic.preview);
   };
 
   render() {
+  console.log(this.state.currentId)
+
+    if (this.state.currentId) {
+      document.querySelector(`.results__link[id*="${this.state.currentId}"]`).classList.add('results__link--active');
+    }
     let list = <ul className="searchbar__list">
                   <SidebarList
                     listData={this.props.listData}
                     selectedMusicHandler={this.selectedMusicHandler}
+                    selectedMusicHighlighted={this.selectedMusicHighlighted}
+                    // currentId={this.state.currentId}
                   />
                 </ul>
     if (this.props.loading) {
