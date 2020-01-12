@@ -10,10 +10,17 @@ import Spinner from "../UI/Spinner/Spinner";
 import './Sidebar.css'
 
 class Sidebar extends Component {
-    state={
-      currentId:null,
 
+  componentDidMount(){
+        const songID = localStorage.getItem('songID');
+
+    if (songID ) {
+      console.log(songID)
+      // const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+      // console.log(resultsArr)
+      document.querySelector(`.results__link[id*="${songID}"]`).classList.add('results__link--active');
     }
+  }
   buttonRender = () => {
     if (this.props.next && !this.props.prev) {
       return (
@@ -53,31 +60,23 @@ class Sidebar extends Component {
     }
   };
  
-  selectedMusicHighlighted = (currentId) => {
+  
+  selectedMusicHandler = ( selectedMusic) => {
+    this.props.onselectMusic(selectedMusic);
     const resultsArr = Array.from(document.querySelectorAll('.results__link'));
     resultsArr.forEach(el => {
       el.classList.remove('results__link--active');
     });
-    document.querySelector(`.results__link[id*="${currentId}"]`).classList.add('results__link--active');
-    // this.setState({ currentId: currentId})
-  }
-  selectedMusicHandler = ( selectedMusic) => {
-    this.props.onselectMusic(selectedMusic);
+    document.querySelector(`.results__link[id*="${selectedMusic.id}"]`).classList.add('results__link--active');
+
     this.props.onupdatePlayer(selectedMusic.preview);
   };
 
   render() {
-  console.log(this.state.currentId)
-
-    if (this.state.currentId) {
-      document.querySelector(`.results__link[id*="${this.state.currentId}"]`).classList.add('results__link--active');
-    }
     let list = <ul className="searchbar__list">
                   <SidebarList
                     listData={this.props.listData}
                     selectedMusicHandler={this.selectedMusicHandler}
-                    selectedMusicHighlighted={this.selectedMusicHighlighted}
-                    // currentId={this.state.currentId}
                   />
                 </ul>
     if (this.props.loading) {
@@ -103,7 +102,6 @@ const mapStateToProps = state => {
     next: state.musicListBuilder.next,
     prev: state.musicListBuilder.prev,
     loading: state.musicListBuilder.loading,
-
   };
 };
 

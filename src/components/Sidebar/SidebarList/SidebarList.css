@@ -9,8 +9,8 @@
     background-color: #F9F5F3;
     transform: translateY(-2px); }
   .results__link--active{
-    /* background-color: rgb(236, 231, 229);  */
-    background-color: rgb(185, 76, 32); 
+    background-color: rgb(236, 231, 229); 
+    /* background-color: rgb(161, 89, 60);  */
   }
 
    

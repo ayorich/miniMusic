@@ -51,6 +51,7 @@ export const authSuccess = (token, userId) => {
 export const logout = () => {
     localStorage.removeItem('album');
     localStorage.removeItem('albumID');
+    localStorage.removeItem('songID');
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');

@@ -3,8 +3,6 @@ import {titleTrimmer} from "../../../shared/utility";
 import './SidebarList.css';
 
 const sidebarList = (props)=> {
-  // console.log(props.currentId)
-
   const list = props.listData;
 
   const dataArray = [];
@@ -17,7 +15,7 @@ const sidebarList = (props)=> {
       <li key={key.id} className="list__pointer">
         <div className="results__link " id={key.id} onClick={() => {
                                                                   props.selectedMusicHandler(key);
-                                                                  props.selectedMusicHighlighted(key.id); }
+                                                                 }
                                                             }>
             <p className="results__author">Artist : {titleTrimmer(key.artist.name, 14)}</p>
             <h4 className="results__name">Song Title : {titleTrimmer(key.title, 12)}</h4>
@@ -25,7 +23,11 @@ const sidebarList = (props)=> {
       </li>
     );
   });
-// if(props.currentId){
+
+//   if (props.currentId && displayData){
+//   console.log(props.currentId)
+//     const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+// console.log(resultsArr)
 //   document.querySelector(`.results__link[id*="${props.currentId}"]`).classList.add('results__link--active');
 // }
   return displayData;

@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes'
 
 
 const initialState ={
-    displayType: false //change display between ALBUM DISPLAY(TRUE) AND LIST DISPLAY DETAILS(FALSE)
+    displayType: false, //change display between ALBUM DISPLAY(TRUE) AND LIST DISPLAY DETAILS(FALSE),
 };
 
 const reducer = (state = initialState, action) => {
