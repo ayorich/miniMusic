@@ -1,16 +1,14 @@
 .list__pointer{cursor: pointer;}
-.results__link:link, .results__link:visited {
-    padding: 1.5rem 3rem;
+.results__link{
+    padding-left:1rem;
     transition: all .3s;
-    border-right: 1px solid #fff;
-    text-decoration: none; 
-  margin: 0 1rem;}
+  }
   .results__link:hover {
-    background-color: #F9F5F3;
+    background-color: rgb(236, 231, 229);
     transform: translateY(-2px); }
   .results__link--active{
-    background-color: rgb(236, 231, 229); 
-    /* background-color: rgb(161, 89, 60);  */
+    background-color: rgb(236, 231, 229);
+    border-right: 2px solid #F59A83;
   }
 
    
@@ -19,7 +17,7 @@
   color: #F59A83;
   text-transform: uppercase;
   font-weight: 600; }
-  
+ 
 .results__author{
   margin-right: 1.8rem;
   font-size: 1.3rem;

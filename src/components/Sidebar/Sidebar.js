@@ -13,12 +13,11 @@ class Sidebar extends Component {
 
   componentDidMount(){
         const songID = localStorage.getItem('songID');
-
     if (songID ) {
-      console.log(songID)
-      // const resultsArr = Array.from(document.querySelectorAll('.results__link'));
-      // console.log(resultsArr)
-      document.querySelector(`.results__link[id*="${songID}"]`).classList.add('results__link--active');
+      const songDom = document.querySelector(`.results__link[id*="${songID}"]`);
+        if (songDom){
+        songDom.classList.add('results__link--active');
+      }
     }
   }
   buttonRender = () => {
@@ -62,6 +61,7 @@ class Sidebar extends Component {
  
   
   selectedMusicHandler = ( selectedMusic) => {
+    console.log(selectedMusic.id)
     this.props.onselectMusic(selectedMusic);
     const resultsArr = Array.from(document.querySelectorAll('.results__link'));
     resultsArr.forEach(el => {
