@@ -19,7 +19,9 @@ import './Auth.css';
 
 
 class Auth extends Component{
-    state = {
+    constructor(props) {
+        super(props)
+    this.state = {
         controls: {
             email: {
                 elementType: 'input',
@@ -68,11 +70,18 @@ class Auth extends Component{
         isSignup: true,
         passError: false
     }
+  // Creating the scroll ref
+    this.topRef = React.createRef()
+  }
 
     componentDidMount(){
         if (this.props.history.location.pathname !== '/') {
             this.props.onhideSearchbar()
         }
+        this.scrollToTop();
+    }
+    scrollToTop = () => {
+        this.topRef.current.scrollIntoView({ behavior: 'smooth' })
     }
     inputChangedHandler = (event, controlName) => {
         const updatedControls ={
@@ -138,7 +147,7 @@ class Auth extends Component{
                  </div>
         }
         return(
-            <div className="authBuilder">
+            <div className="authBuilder" ref={this.topRef} >
                 <div className='auth'>
                 {authRedirect}
                 <form onSubmit={this.submitHandler}>

@@ -8,18 +8,16 @@ import * as actions from './store/actions/index';
 import './App.css';
 
 class App extends Component {
-
+  
    componentDidMount() {
      this.props.onTryAutoSignin();
-   
   }
   
- 
   render(){
     
       return (
         <React.Fragment>
-          <Header />
+          <Header   />
           <div className='appBuilder'>
             <RouterRender isAuthenticated={this.props.isAuthenticated}/>
           </div>

@@ -18,10 +18,16 @@ import * as actions from '../../store/actions/index';
 import './MusicDetails.css'
 
 class MusicDetails extends Component {
-    state={
+    constructor(props) {
+        super(props)
+        this.state={
         textContent: 'View Album',
         authRedirect:null,
     }
+        // Creating the ref
+    this.musicDetailTopRef = React.createRef()
+    }
+    
   
 
     componentDidMount() {
@@ -34,7 +40,6 @@ class MusicDetails extends Component {
             if (albumId !== this.props.selectSong.album.id) {
                 this.props.onviewAlbum(this.props.selectSong.album.id) // ACTION DISPATCHED AND API QUERY
                 this.props.onbtnToSave() // to change button state on mount
-                // this.showModal = true //SET SPINNER TO SHOW ON MOUNT
                 this.onMountSpinner = <Spinner/> //SPINNER ONCE COMPONENT IS MOUNTED
             }
         }
@@ -42,10 +47,11 @@ class MusicDetails extends Component {
 
     componentDidUpdate(){
         this.onMountSpinner=null //UNLOAD SPINNER ON UPDATING
-        // this.showModal = false // hide spinner
     }
 
-
+    scrollToTop = () => {
+        this.musicDetailTopRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
     mouseOver = () =>{
         if (!this.props.isAuthenticated){
             this.setState({ textContent: '  LOG IN  '}) // Space leave around login for styling purpose
@@ -61,12 +67,12 @@ class MusicDetails extends Component {
     onButtonClicked =  (selectSong) => {
         if (this.props.isAuthenticated){
             const albumId = parseInt(localStorage.getItem('albumID'))
-
+            this.scrollToTop()
             localStorage.setItem('albumID', this.props.selectSong.album.id)
             if (albumId !== selectSong.album.id){
                 //TO RETURN ONCE AUTH IS TRUE
                  this.props.onviewAlbum(selectSong.album.id)
-                return this.props.onbtnToSave()
+                return this.props.onbtnToSave() 
             }
             
         }
@@ -77,19 +83,13 @@ class MusicDetails extends Component {
     render(){
         const selectSong = this.props.selectSong;
         const mountSpinner = (
-                        <div
-                             className='spinnerModal'
-                            //  style={{
-                            //      transform: this.showModal ? 'translateY(0)' : 'translateY(-100vh)',
-                            //      opacity: this.showModal ? '1' : '0'
-                            //  }}
-                            >
+                        <div className='spinnerModal'>
                             {this.onMountSpinner}
                          </div>
             )
 
         return(
-            <div className="musicDetials">
+            <div className="musicDetials" ref={this.musicDetailTopRef}>
                 {this.state.authRedirect}
                 {mountSpinner}
                 <MusicImage selectSongData={selectSong}/>

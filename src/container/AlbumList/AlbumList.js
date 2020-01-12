@@ -21,7 +21,6 @@ class AlbumList extends Component{
         }
 
     render(){
-        console.log(window.innerWidth,window.innerHeight)
         const albumSort = this.props.fetchAlbums;
         albumSort.sort((a, b) => {
             return a.time - b.time;

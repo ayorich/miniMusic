@@ -15,7 +15,7 @@ class Music extends React.Component {
 
     changeMusic = () =>{
                 this.refs.audio.pause();
-                // this.refs.audio.load();
+                this.refs.audio.load();
                 // this.refs.audio.play();
         }
  

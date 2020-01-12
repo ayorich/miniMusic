@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import ErrorHandler from '../../hoc/ErrorHandler/ErrorHandler'
 import AlbumTrackList from './AlbumTrackList/AlbumTrackList';
 import * as actions from '../../store/actions/index';
 
@@ -12,9 +11,10 @@ import './AlbumTracks.css'
 
 
 class AlbumTracks extends Component{
+    
     componentDidMount(){
             this.props.onalbumInit(); // to access the album data in local storage on page refresh/signin
-    }
+        }
     
     getAlbumDetails = () => {
         const cover_xl = this.props.album.cover_xl;
@@ -43,7 +43,7 @@ class AlbumTracks extends Component{
 
     }
     saveAlbumHandler = (album, token) => {
-        const date =new Date();
+        const date = new Date();
         const time = date.getTime()
         const albumData ={
             album:album,
@@ -72,18 +72,18 @@ class AlbumTracks extends Component{
                         </Button>
         let renderButton=  null
          if (this.props.saveloading ){
-             renderButton = < Button className='btn' >saving....</Button >
+             renderButton = < Button className='btn' style={{ cursor: 'default' }} >saving....</Button >
          }else if(this.props.error){
              renderButton = <Button
                                 onClick={() => this.saveAlbumHandler(this.props.album, this.props.token)}
                                 className='btn'
                                 style={{
                                     backgroundImage: 'linear-gradient(to right bottom,rgb(236, 147, 147),rgb(240, 138, 131))'
-                                }}
+                            }}
                                 >Error!!! RETRY
                             </Button>
          }else{
-             renderButton = <Button className='btn' >SAVED</Button >
+             renderButton = <Button className='btn' style={{cursor:'default'}} >SAVED</Button >
          }
 
         const buttonRender=this.props.btnIU ?saveButton: renderButton;

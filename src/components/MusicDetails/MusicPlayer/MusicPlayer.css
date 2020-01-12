@@ -1,9 +1,9 @@
 .audio__player{
-    max-width: 50rem;
+    width: 50rem;
 }
 
 .audio__player:focus{
-    max-width: 50rem;
+    width: 50rem;
     outline: none;
 }
 .audio__container{
