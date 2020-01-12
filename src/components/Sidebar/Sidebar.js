@@ -61,7 +61,6 @@ class Sidebar extends Component {
  
   
   selectedMusicHandler = ( selectedMusic) => {
-    console.log(selectedMusic.id)
     this.props.onselectMusic(selectedMusic);
     const resultsArr = Array.from(document.querySelectorAll('.results__link'));
     resultsArr.forEach(el => {

@@ -34,7 +34,7 @@ class AlbumList extends Component{
                         <img src={albumElement.album.cover_big} alt={albumElement.album.title} className="music__img"/>
                     </div>
                     <h4 className="card__heading">
-                        <span className="card__heading-span">{albumElement.album.title}</span>
+                        <span className="card__heading-span">{titleTrimmer(albumElement.album.title, 25)}</span>
                     </h4>
                     <div className="card__details">
                         <ul>
