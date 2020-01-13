@@ -1,8 +1,8 @@
 .searchbar{
   padding: 0rem 0 3rem;
-  grid-area: list; 
+  grid-area: list;
 }
-  
+ 
 .searchbar__list {
     list-style: none;
     max-height: 77rem;
