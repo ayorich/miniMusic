@@ -1,29 +1,29 @@
-.searchbar{
+.sidebar{
   padding: 0rem 0 3rem;
   grid-area: list;
 }
  
-.searchbar__list {
+.sidebar__list {
     list-style: none;
     max-height: 77rem;
     overflow-y: scroll;
   margin: 0 0 1rem; }
 
-
-.searchbar__pages{
+/* @media only screen and (max-width: 768px) */
+.sidebar__pages{
     margin-bottom: 3rem;
     padding: 0 3rem; }
 
-.searchbar__pages::after{
+.sidebar__pages::after{
       content: "";
       display: table;
       clear: both; }
 
-@media (max-width: 768px) {
-  ul.searchbar__list  {
+@media only screen and (max-width: 68.75em) {
+  ul.sidebar__list  {
     padding: 0;
   }
-  .searchbar__pages{
+  .sidebar__pages{
     margin-bottom: 2rem;
     padding: 0 0.3rem; }
    }

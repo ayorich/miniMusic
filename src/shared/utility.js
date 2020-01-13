@@ -42,7 +42,7 @@ export const timeFormatter = (time)=> {
 }
 
 
-export const titleTrimmer = (title, limit=100) => {
+export const titleTrimmer = (title, limit=100, contd='...') => {
     const titleSplit = title.split('(')[0];
 
     const newTitle = [];
@@ -55,7 +55,7 @@ export const titleTrimmer = (title, limit=100) => {
         }, 0);
 
         // return the result
-        return `${newTitle.join(' ')} ...`;
+        return `${newTitle.join(' ')} ${contd}`;
     }
     return titleSplit;
 }

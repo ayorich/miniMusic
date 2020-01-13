@@ -29,7 +29,7 @@
 
 }
 
- @media (max-width: 768px) {
+ @media only screen and (max-width: 68.75em) {
    .btn{
   border-radius: 5rem;
   padding: 1rem 1.5rem;

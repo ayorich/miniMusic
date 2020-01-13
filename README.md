@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - get a understanding of higher order components(ERRORHANDLING)
 - understand Lazyloading 
 - understanding of Authetication and sessions
-- making use of CSS Grid ,transition,perspective, transform and media queries
+- making use of CSS Grid ,transition,perspective, transform and media queries(but not mobile reponsive).
 
 
 ## project link 

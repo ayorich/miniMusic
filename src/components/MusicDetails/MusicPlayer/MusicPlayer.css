@@ -13,7 +13,7 @@
         padding: 1rem 3rem;
         outline: none;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 68.75em) {
     .audio__player{
     max-width: 35rem;
 }

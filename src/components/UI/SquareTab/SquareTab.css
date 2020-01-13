@@ -25,7 +25,7 @@
 
   }
 
-   @media (max-width: 768px) {
+   @media only screen and (max-width: 68.75em) {
      .music__detail {
     margin-bottom: 1.3rem;
     width: 45%;

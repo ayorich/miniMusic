@@ -1,7 +1,7 @@
 .musictab__details {
     padding: 3rem; 
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 68.75em) {
 .musictab__details{
     padding: 1rem;
 }

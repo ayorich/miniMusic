@@ -5,7 +5,7 @@
   grid-template-areas:  "list details playlist";
   
 }
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 68.75em) {
       .musicBuilder {
   grid-template-columns:1.1fr 1.5fr 1.1fr;
   grid-template-rows: minmax(70rem, auto);

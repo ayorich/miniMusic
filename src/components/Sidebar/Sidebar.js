@@ -72,7 +72,7 @@ class Sidebar extends Component {
   };
 
   render() {
-    let list = <ul className="searchbar__list">
+    let list = <ul className="sidebar__list">
                   <SidebarList
                     listData={this.props.listData}
                     selectedMusicHandler={this.selectedMusicHandler}
@@ -84,9 +84,9 @@ class Sidebar extends Component {
 
     return (
       <React.Fragment>
-        <div className="searchbar">
+        <div className="sidebar">
             {list}
-          <div className="searchbar__pages">
+          <div className="sidebar__pages">
             {!this.props.loading? this.buttonRender():null}
           </div>
         </div>
