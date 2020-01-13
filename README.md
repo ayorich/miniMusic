@@ -8,8 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - get a practical sense of react-redux and react-router
 - get a understanding of higher order components(ERRORHANDLING)
 - understand Lazyloading 
-- understanding of Authetication 
-- making use of CSS Grid ,transition, transform and media queries
+- understanding of Authetication and sessions
+- making use of CSS Grid ,transition,perspective, transform and media queries
 
 
 ## project link 
